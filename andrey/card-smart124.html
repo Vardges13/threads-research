@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=900">
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  width: 900px;
+  height: 1200px;
+  font-family: system-ui, -apple-system, sans-serif;
+  background: linear-gradient(170deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%);
+  color: white;
+  overflow: hidden;
+  position: relative;
+}
+.container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 60px 40px;
+  position: relative;
+}
+.badge {
+  position: absolute;
+  top: 40px;
+  right: 50px;
+  background: #f5c518;
+  color: #1a1a2e;
+  font-weight: 800;
+  font-size: 22px;
+  padding: 10px 22px;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+.project-name {
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: 6px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  margin-bottom: 10px;
+}
+.area {
+  font-size: 110px;
+  font-weight: 900;
+  letter-spacing: -2px;
+  line-height: 1;
+  margin-bottom: 5px;
+  text-shadow: 0 4px 30px rgba(0,0,0,0.3);
+}
+.area span {
+  font-size: 60px;
+  font-weight: 700;
+  vertical-align: super;
+  margin-left: 5px;
+}
+.subtitle {
+  font-size: 24px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.8);
+  text-align: center;
+  margin-bottom: 30px;
+  line-height: 1.4;
+}
+.house-icon {
+  position: relative;
+  width: 320px;
+  height: 260px;
+  margin: 20px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.house-svg {
+  width: 300px;
+  height: 230px;
+  opacity: 0.9;
+}
+.dims {
+  font-size: 20px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 10px;
+  letter-spacing: 2px;
+}
+.people {
+  font-size: 22px;
+  color: rgba(255,255,255,0.7);
+  margin-bottom: 30px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.features {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  justify-content: center;
+  margin-bottom: auto;
+}
+.feature {
+  border: 2px solid rgba(255,255,255,0.7);
+  border-radius: 14px;
+  padding: 14px 28px;
+  font-size: 20px;
+  font-weight: 500;
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(5px);
+  white-space: nowrap;
+}
+.feature-highlight {
+  border-color: #f5c518;
+  color: #f5c518;
+}
+.bottom-bar {
+  width: calc(100% + 120px);
+  margin: 0 -60px;
+  padding: 22px 40px;
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 30px;
+}
+.bottom-bar .logo-text {
+  font-size: 24px;
+  font-weight: 800;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+.bottom-bar .sub {
+  font-size: 20px;
+  font-weight: 600;
+  color: #f5c518;
+  letter-spacing: 3px;
+}
+.glow {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(15,52,96,0.5) 0%, transparent 70%);
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+}
+.floor-info {
+  font-size: 18px;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 25px;
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="badge">АР + КР</div>
+  <div class="project-name">СМАРТ 124</div>
+  <div class="area">124 <span>М²</span></div>
+  <div class="subtitle">готовый проект каркасного<br>одноэтажного дома</div>
+  
+  <div class="house-icon">
+    <div class="glow"></div>
+    <svg class="house-svg" viewBox="0 0 300 230" fill="none">
+      <!-- Large house body -->
+      <rect x="30" y="100" width="240" height="120" rx="4" stroke="white" stroke-width="2.5" fill="rgba(255,255,255,0.03)"/>
+      <!-- Roof -->
+      <path d="M15 105 L150 20 L285 105" stroke="white" stroke-width="3" fill="rgba(255,255,255,0.03)" stroke-linejoin="round"/>
+      <!-- Door -->
+      <rect x="130" y="150" width="40" height="70" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+      <circle cx="162" cy="185" r="3" fill="rgba(255,255,255,0.5)"/>
+      <!-- Windows row -->
+      <rect x="50" y="130" width="35" height="30" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+      <line x1="67" y1="130" x2="67" y2="160" stroke="white" stroke-width="1.5"/>
+      <rect x="95" y="130" width="25" height="30" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+      <rect x="180" y="130" width="35" height="30" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+      <line x1="197" y1="130" x2="197" y2="160" stroke="white" stroke-width="1.5"/>
+      <rect x="225" y="130" width="25" height="30" rx="3" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.05)"/>
+      <!-- Chimney -->
+      <rect x="200" y="35" width="25" height="45" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.03)"/>
+      <!-- Garage/Extension -->
+      <rect x="270" y="140" width="25" height="80" stroke="white" stroke-width="2" fill="rgba(255,255,255,0.02)" stroke-dasharray="5,5"/>
+    </svg>
+  </div>
+
+  <div class="dims">13,2 × 14,45 м</div>
+  <div class="floor-info">1 этаж · потолки 2,9 м · 3 входа</div>
+  <div class="people">👥 4–6 человек</div>
+
+  <div class="features">
+    <div class="feature">🛏 3 спальни</div>
+    <div class="feature">🚿 2 санузла</div>
+    <div class="feature">🍳 кухня-гостиная</div>
+    <div class="feature feature-highlight">☀️ терраса 22 м²</div>
+  </div>
+
+  <div class="bottom-bar">
+    <span class="logo-text">ТЕХНОНИКОЛЬ</span>
+    <span class="sub">ПРЕКАТ</span>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,620 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Производственный учёт</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Производственный учёт</h1>
+</header>
+<h1 id="карта-производственного-учёта">КАРТА ПРОИЗВОДСТВЕННОГО
+УЧЁТА</h1>
+<p><strong>ООО «Эверест-Тех»</strong></p>
+<hr />
+<table>
+<thead>
+<tr>
+<th>Поле</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Заказ №</strong></td>
+<td>2026-0205-017</td>
+</tr>
+<tr>
+<td><strong>Изделие</strong></td>
+<td>КЛЦ-2-1.1 (кассета лицевая угловая)</td>
+</tr>
+<tr>
+<td><strong>Заказчик</strong></td>
+<td>ООО «СтройИнвест»</td>
+</tr>
+<tr>
+<td><strong>Количество</strong></td>
+<td>48 шт.</td>
+</tr>
+<tr>
+<td><strong>Запуск</strong></td>
+<td>05.02.2026</td>
+</tr>
+<tr>
+<td><strong>Сдача (план)</strong></td>
+<td>07.02.2026</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="движение-по-участкам">ДВИЖЕНИЕ ПО УЧАСТКАМ</h2>
+<table>
+<colgroup>
+<col style="width: 6%" />
+<col style="width: 7%" />
+<col style="width: 9%" />
+<col style="width: 10%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 6%" />
+<col style="width: 8%" />
+<col style="width: 13%" />
+<col style="width: 10%" />
+<col style="width: 12%" />
+</colgroup>
+<thead>
+<tr>
+<th>Дата</th>
+<th style="text-align: center;">Смена</th>
+<th>Участок</th>
+<th>Операция</th>
+<th style="text-align: center;">План</th>
+<th style="text-align: center;">Факт</th>
+<th style="text-align: center;">Брак</th>
+<th style="text-align: center;">Годные</th>
+<th>Исполнитель</th>
+<th style="text-align: center;">Табель №</th>
+<th>Примечание</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>05.02</td>
+<td style="text-align: center;">1</td>
+<td>Склад</td>
+<td>Выдача материала</td>
+<td style="text-align: center;">6 л.</td>
+<td style="text-align: center;">6 л.</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">6 л.</td>
+<td>Сидоров А.П.</td>
+<td style="text-align: center;">0041</td>
+<td>Лист 1250×3000×2.0</td>
+</tr>
+<tr>
+<td>05.02</td>
+<td style="text-align: center;">1</td>
+<td>Лазер</td>
+<td>Резка развёртки</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">47</td>
+<td>Петров И.С.</td>
+<td style="text-align: center;">0112</td>
+<td>Брак: прожог (лист #3)</td>
+</tr>
+<tr>
+<td>05.02</td>
+<td style="text-align: center;">1</td>
+<td>Лазер</td>
+<td>Резка пазов D5</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">47</td>
+<td>Петров И.С.</td>
+<td style="text-align: center;">0112</td>
+<td>—</td>
+</tr>
+<tr>
+<td>05.02</td>
+<td style="text-align: center;">2</td>
+<td>Пробивка</td>
+<td>Отверстия D4</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">47</td>
+<td>Козлов Д.В.</td>
+<td style="text-align: center;">0087</td>
+<td>—</td>
+</tr>
+<tr>
+<td>05.02</td>
+<td style="text-align: center;">2</td>
+<td>Гибка</td>
+<td>Основной гиб</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">47</td>
+<td style="text-align: center;">2</td>
+<td style="text-align: center;">45</td>
+<td>Морозов Е.А.</td>
+<td style="text-align: center;">0156</td>
+<td>Брак: угол вне допуска</td>
+</tr>
+<tr>
+<td>06.02</td>
+<td style="text-align: center;">1</td>
+<td>Гибка</td>
+<td>Отбортовки</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">45</td>
+<td>Морозов Е.А.</td>
+<td style="text-align: center;">0156</td>
+<td>Salvagnini P4</td>
+</tr>
+<tr>
+<td>06.02</td>
+<td style="text-align: center;">1</td>
+<td>Сварка</td>
+<td>Угловые швы</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">45</td>
+<td style="text-align: center;">1</td>
+<td style="text-align: center;">44</td>
+<td>Волков С.Н.</td>
+<td style="text-align: center;">0203</td>
+<td>Брак: непровар</td>
+</tr>
+<tr>
+<td>06.02</td>
+<td style="text-align: center;">2</td>
+<td>Зачистка</td>
+<td>Швы</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">44</td>
+<td>Новиков К.Р.</td>
+<td style="text-align: center;">0067</td>
+<td>—</td>
+</tr>
+<tr>
+<td>06.02</td>
+<td style="text-align: center;">2</td>
+<td>Покраска</td>
+<td>Подготовка</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">44</td>
+<td>Фёдоров М.И.</td>
+<td style="text-align: center;">0134</td>
+<td>—</td>
+</tr>
+<tr>
+<td>07.02</td>
+<td style="text-align: center;">1</td>
+<td>Покраска</td>
+<td>Напыление</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">44</td>
+<td>Фёдоров М.И.</td>
+<td style="text-align: center;">0134</td>
+<td>RAL 9003</td>
+</tr>
+<tr>
+<td>07.02</td>
+<td style="text-align: center;">1</td>
+<td>Покраска</td>
+<td>Полимеризация</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">44</td>
+<td>Фёдоров М.И.</td>
+<td style="text-align: center;">0134</td>
+<td>4 партии × 11 шт</td>
+</tr>
+<tr>
+<td>07.02</td>
+<td style="text-align: center;">2</td>
+<td>ОТК</td>
+<td>Контроль</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">0</td>
+<td style="text-align: center;">44</td>
+<td>Белова О.С.</td>
+<td style="text-align: center;">0089</td>
+<td>Акт ОТК №0205-017</td>
+</tr>
+<tr>
+<td>07.02</td>
+<td style="text-align: center;">2</td>
+<td>Упаковка</td>
+<td>Упаковка</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">44</td>
+<td style="text-align: center;">—</td>
+<td style="text-align: center;">44</td>
+<td>Кузнецов В.А.</td>
+<td style="text-align: center;">0045</td>
+<td>2 обрешётки × 22 шт</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="сводка-по-заказу">СВОДКА ПО ЗАКАЗУ</h2>
+<table>
+<thead>
+<tr>
+<th>Показатель</th>
+<th>Значение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Запущено</strong></td>
+<td>48 шт.</td>
+</tr>
+<tr>
+<td><strong>Сдано годных</strong></td>
+<td>44 шт.</td>
+</tr>
+<tr>
+<td><strong>Брак всего</strong></td>
+<td>4 шт. (8.3%)</td>
+</tr>
+<tr>
+<td><strong>Выполнение плана</strong></td>
+<td>91.7%</td>
+</tr>
+</tbody>
+</table>
+<h3 id="анализ-брака">Анализ брака</h3>
+<table>
+<thead>
+<tr>
+<th>Участок</th>
+<th style="text-align: center;">Кол-во</th>
+<th>Причина</th>
+<th>Виновник</th>
+<th style="text-align: right;">Сумма ущерба</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Лазер</td>
+<td style="text-align: center;">1</td>
+<td>Прожог — сбой фокуса</td>
+<td>Оборудование</td>
+<td style="text-align: right;">2 340 ₽</td>
+</tr>
+<tr>
+<td>Гибка</td>
+<td style="text-align: center;">2</td>
+<td>Угол вне допуска ±0.5°</td>
+<td>Оператор</td>
+<td style="text-align: right;">4 680 ₽</td>
+</tr>
+<tr>
+<td>Сварка</td>
+<td style="text-align: center;">1</td>
+<td>Непровар — загрязнение</td>
+<td>Оператор</td>
+<td style="text-align: right;">2 340 ₽</td>
+</tr>
+<tr>
+<td><strong>Итого</strong></td>
+<td style="text-align: center;"><strong>4</strong></td>
+<td></td>
+<td></td>
+<td style="text-align: right;"><strong>9 360 ₽</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="расход-материалов">РАСХОД МАТЕРИАЛОВ</h2>
+<table>
+<thead>
+<tr>
+<th>Материал</th>
+<th>Ед.</th>
+<th style="text-align: center;">План</th>
+<th style="text-align: center;">Факт</th>
+<th style="text-align: center;">Отклонение</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Лист АМг2 1250×3000×2.0</td>
+<td>шт</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">6</td>
+<td style="text-align: center;">0</td>
+</tr>
+<tr>
+<td>Порошок RAL 9003</td>
+<td>кг</td>
+<td style="text-align: center;">4.5</td>
+<td style="text-align: center;">4.8</td>
+<td style="text-align: center;">+0.3</td>
+</tr>
+<tr>
+<td>Аргон</td>
+<td>л</td>
+<td style="text-align: center;">120</td>
+<td style="text-align: center;">135</td>
+<td style="text-align: center;">+15</td>
+</tr>
+<tr>
+<td>Присадка АМг</td>
+<td>м</td>
+<td style="text-align: center;">48</td>
+<td style="text-align: center;">52</td>
+<td style="text-align: center;">+4</td>
+</tr>
+<tr>
+<td>Плёнка защитная</td>
+<td>м²</td>
+<td style="text-align: center;">160</td>
+<td style="text-align: center;">165</td>
+<td style="text-align: center;">+5</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="подписи-сдачи-приёмки">ПОДПИСИ СДАЧИ-ПРИЁМКИ</h2>
+<table>
+<thead>
+<tr>
+<th>Этап</th>
+<th>Сдал</th>
+<th>Принял</th>
+<th>Дата</th>
+<th>Время</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Склад → Лазер</td>
+<td>Сидоров А.П.</td>
+<td>Петров И.С.</td>
+<td>05.02</td>
+<td>08:15</td>
+</tr>
+<tr>
+<td>Лазер → Пробивка</td>
+<td>Петров И.С.</td>
+<td>Козлов Д.В.</td>
+<td>05.02</td>
+<td>14:30</td>
+</tr>
+<tr>
+<td>Пробивка → Гибка</td>
+<td>Козлов Д.В.</td>
+<td>Морозов Е.А.</td>
+<td>05.02</td>
+<td>17:45</td>
+</tr>
+<tr>
+<td>Гибка → Сварка</td>
+<td>Морозов Е.А.</td>
+<td>Волков С.Н.</td>
+<td>06.02</td>
+<td>11:20</td>
+</tr>
+<tr>
+<td>Сварка → Зачистка</td>
+<td>Волков С.Н.</td>
+<td>Новиков К.Р.</td>
+<td>06.02</td>
+<td>16:10</td>
+</tr>
+<tr>
+<td>Зачистка → Покраска</td>
+<td>Новиков К.Р.</td>
+<td>Фёдоров М.И.</td>
+<td>06.02</td>
+<td>18:00</td>
+</tr>
+<tr>
+<td>Покраска → ОТК</td>
+<td>Фёдоров М.И.</td>
+<td>Белова О.С.</td>
+<td>07.02</td>
+<td>14:00</td>
+</tr>
+<tr>
+<td>ОТК → Упаковка</td>
+<td>Белова О.С.</td>
+<td>Кузнецов В.А.</td>
+<td>07.02</td>
+<td>15:30</td>
+</tr>
+<tr>
+<td>Упаковка → Склад ГП</td>
+<td>Кузнецов В.А.</td>
+<td>Логинов П.Д.</td>
+<td>07.02</td>
+<td>17:00</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>Форма ПУ-001 | Версия 1.0 | ООО «Эверест-Тех»</em></p>
+</body>
+</html>

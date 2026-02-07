@@ -1,0 +1,11 @@
+file 'card-v2-smart60.png'
+duration 2
+file 'card-v2-smart124.png'
+duration 2
+file 'card-v2-mone55.png'
+duration 2
+file 'card-v2-gogen98.png'
+duration 2
+file 'card-v2-picasso93.png'
+duration 2
+file 'card-v2-picasso93.png'

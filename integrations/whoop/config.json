@@ -1,0 +1,10 @@
+{
+  "client_id": "d35a6862-c2ee-43e0-a260-fb3521d3739f",
+  "client_secret": "REDACTED",
+  "redirect_uri": "https://localhost/callback",
+  "user_id": 25519272,
+  "access_token": "F0YqJfuhe1TqSLwP0e5hcWumWAX3DYrLToKZnTvvY4Y.XPz7TjLWIN4XkTcupPg6UMwAvDn9pe5QFGMU5m88cQI",
+  "refresh_token": "MnzWbqYW-vazwymE-LJoJ3NYrV2DRwRp0kM-E9_IfZ8.qLJcQQJLuTDM4a5ZVGpIFY3wVjHt2r0yDddEEUL8__0",
+  "token_expires_in": 3599,
+  "scopes": ["read:recovery", "read:cycles", "read:sleep", "read:workout", "read:profile", "read:body_measurement", "offline"]
+}
