@@ -1,0 +1,10 @@
+{
+  "lastChecks": {
+    "email": 1738735231,
+    "calendar": null,
+    "weather": 1738648707,
+    "kanban_review": 1738651106
+  },
+  "accounts": ["gmail (default)", "mailru"],
+  "notes": "Both email accounts configured 2026-02-02. Gmail + Mail.ru via himalaya + macOS Keychain."
+}

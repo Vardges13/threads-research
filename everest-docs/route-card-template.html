@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Маршрутная карта — ООО «Эверест-Тех»</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', Arial, sans-serif; font-size: 11px; padding: 15px; background: #fff; }
+        
+        .header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 15px; border-bottom: 2px solid #1a5f7a; padding-bottom: 10px; }
+        .logo { font-size: 18px; font-weight: bold; color: #1a5f7a; }
+        .logo span { color: #e63946; }
+        .doc-info { text-align: right; font-size: 10px; color: #666; }
+        
+        h1 { text-align: center; font-size: 16px; margin: 15px 0; color: #1a5f7a; }
+        
+        .info-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 15px; }
+        .info-cell { border: 1px solid #ddd; padding: 8px; }
+        .info-cell label { font-size: 9px; color: #666; display: block; margin-bottom: 3px; }
+        .info-cell .value { font-weight: 600; font-size: 11px; min-height: 18px; border-bottom: 1px dotted #999; }
+        
+        .route-table { width: 100%; border-collapse: collapse; margin-bottom: 15px; }
+        .route-table th, .route-table td { border: 1px solid #333; padding: 8px; }
+        .route-table th { background: #1a5f7a; color: white; font-size: 10px; }
+        
+        .station { display: flex; align-items: center; gap: 8px; }
+        .station-icon { width: 30px; height: 30px; background: #e8f4ea; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+        .station-name { font-weight: 600; }
+        .station-equip { font-size: 9px; color: #666; }
+        
+        .arrow-cell { text-align: center; font-size: 20px; color: #1a5f7a; }
+        
+        .time-block { text-align: center; }
+        .time-value { font-size: 14px; font-weight: bold; color: #1a5f7a; }
+        .time-label { font-size: 9px; color: #666; }
+        
+        .tracking-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        .tracking-table th, .tracking-table td { border: 1px solid #333; padding: 6px; font-size: 10px; }
+        .tracking-table th { background: #f0f0f0; }
+        .tracking-table td { height: 30px; }
+        
+        .qr-section { display: flex; justify-content: space-between; align-items: flex-start; margin-top: 20px; padding-top: 15px; border-top: 1px solid #ddd; }
+        .qr-placeholder { width: 80px; height: 80px; border: 2px dashed #ccc; display: flex; align-items: center; justify-content: center; font-size: 9px; color: #999; text-align: center; }
+        
+        .summary { background: #f8f9fa; padding: 15px; border-radius: 4px; margin-top: 15px; }
+        .summary h3 { font-size: 12px; margin-bottom: 10px; color: #1a5f7a; }
+        .summary-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+        .summary-item { text-align: center; padding: 10px; background: white; border-radius: 4px; border: 1px solid #ddd; }
+        .summary-value { font-size: 18px; font-weight: bold; color: #1a5f7a; }
+        .summary-label { font-size: 9px; color: #666; }
+        
+        .footer { display: flex; justify-content: space-between; margin-top: 20px; }
+        .signature { width: 22%; }
+        .signature-line { border-bottom: 1px solid #333; height: 20px; margin-bottom: 3px; }
+        .signature-label { font-size: 8px; color: #666; text-align: center; }
+        
+        @media print { body { padding: 10px; } }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">ЭВЕРЕСТ<span>-ТЕХ</span></div>
+        <div class="doc-info">
+            <div><strong>МАРШРУТНАЯ КАРТА</strong></div>
+            <div>МК-____-2026</div>
+            <div>Лист 1 из 1</div>
+        </div>
+    </div>
+    
+    <h1>МАРШРУТНАЯ КАРТА ИЗГОТОВЛЕНИЯ</h1>
+    
+    <div class="info-grid">
+        <div class="info-cell">
+            <label>Изделие:</label>
+            <div class="value">Кассета фасадная КФ-600×600</div>
+        </div>
+        <div class="info-cell">
+            <label>Чертёж №:</label>
+            <div class="value">КФ-600-001</div>
+        </div>
+        <div class="info-cell">
+            <label>Заказ №:</label>
+            <div class="value"></div>
+        </div>
+        <div class="info-cell">
+            <label>Партия:</label>
+            <div class="value">___ шт.</div>
+        </div>
+        <div class="info-cell">
+            <label>Материал:</label>
+            <div class="value">Алюминий АМг2, 2.0 мм</div>
+        </div>
+        <div class="info-cell">
+            <label>Заготовка:</label>
+            <div class="value">700 × 700 мм</div>
+        </div>
+        <div class="info-cell">
+            <label>Покрытие:</label>
+            <div class="value">Порошок RAL 9003</div>
+        </div>
+        <div class="info-cell">
+            <label>Дата запуска:</label>
+            <div class="value">__.__.2026</div>
+        </div>
+    </div>
+    
+    <table class="route-table">
+        <thead>
+            <tr>
+                <th style="width: 50px;">№ оп.</th>
+                <th style="width: 200px;">Участок / Оборудование</th>
+                <th>Содержание операции</th>
+                <th style="width: 70px;">Тшт, мин</th>
+                <th style="width: 70px;">Разряд</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">005</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">✂️</div>
+                        <div>
+                            <div class="station-name">РАСКРОЙ</div>
+                            <div class="station-equip">Лазер TRUMPF</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Резка заготовки по контуру с программы ЧПУ. Контроль первой детали.</td>
+                <td style="text-align: center;"><strong>1.5</strong></td>
+                <td style="text-align: center;">4</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">010</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">🔘</div>
+                        <div>
+                            <div class="station-name">ПРОБИВКА</div>
+                            <div class="station-equip">Коорд.-пробивной</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Пробивка крепёжных отверстий D5 — 8 шт. Маркировка партии.</td>
+                <td style="text-align: center;"><strong>0.8</strong></td>
+                <td style="text-align: center;">3</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">015</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">📐</div>
+                        <div>
+                            <div class="station-name">ГИБКА (авто)</div>
+                            <div class="station-equip">Salvagnini P4</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Автоматическая гибка кассеты — 4 гиба по периметру. Программа П-600.</td>
+                <td style="text-align: center;"><strong>0.3</strong></td>
+                <td style="text-align: center;">4</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">020</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">🔧</div>
+                        <div>
+                            <div class="station-name">ГИБКА (ручн.)</div>
+                            <div class="station-equip">Листогиб AMADA</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Гибка крюков скрытого крепежа — 2 шт. Угол 45°.</td>
+                <td style="text-align: center;"><strong>0.5</strong></td>
+                <td style="text-align: center;">4</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">025</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">✅</div>
+                        <div>
+                            <div class="station-name">КОНТРОЛЬ ОТК</div>
+                            <div class="station-equip">Стол контроля</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Контроль размеров, углов, отсутствия дефектов. Отметка в карте.</td>
+                <td style="text-align: center;"><strong>0.5</strong></td>
+                <td style="text-align: center;">4</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">030</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">🎨</div>
+                        <div>
+                            <div class="station-name">ПОКРАСКА</div>
+                            <div class="station-equip">Покрасочная линия</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Обезжиривание → навеска → нанесение порошка → полимеризация 180°C.</td>
+                <td style="text-align: center;"><strong>2.3</strong></td>
+                <td style="text-align: center;">4</td>
+            </tr>
+            <tr>
+                <td class="arrow-cell" colspan="5">↓</td>
+            </tr>
+            <tr>
+                <td style="text-align: center; font-weight: bold;">035</td>
+                <td>
+                    <div class="station">
+                        <div class="station-icon">📦</div>
+                        <div>
+                            <div class="station-name">УПАКОВКА</div>
+                            <div class="station-equip">Участок упаковки</div>
+                        </div>
+                    </div>
+                </td>
+                <td>Защитная плёнка на лицо. Прокладки. Укладка в короб. Маркировка.</td>
+                <td style="text-align: center;"><strong>0.5</strong></td>
+                <td style="text-align: center;">2</td>
+            </tr>
+        </tbody>
+    </table>
+    
+    <div class="summary">
+        <h3>📊 СВОДКА ПО МАРШРУТУ</h3>
+        <div class="summary-grid">
+            <div class="summary-item">
+                <div class="summary-value">7</div>
+                <div class="summary-label">Операций</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">6.4</div>
+                <div class="summary-label">Тшт, мин</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">9.4</div>
+                <div class="summary-label">Цикл/шт</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">64</div>
+                <div class="summary-label">шт/смена</div>
+            </div>
+            <div class="summary-item">
+                <div class="summary-value">5</div>
+                <div class="summary-label">Участков</div>
+            </div>
+        </div>
+    </div>
+    
+    <table class="tracking-table">
+        <thead>
+            <tr>
+                <th style="width: 50px;">№ оп.</th>
+                <th style="width: 120px;">Дата/время<br>начала</th>
+                <th style="width: 120px;">Дата/время<br>окончания</th>
+                <th style="width: 80px;">Кол-во<br>годных</th>
+                <th style="width: 80px;">Кол-во<br>брака</th>
+                <th style="width: 100px;">Исполнитель</th>
+                <th>Подпись</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr><td>005</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>010</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>015</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>020</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>025</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>030</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+            <tr><td>035</td><td></td><td></td><td></td><td></td><td></td><td></td></tr>
+        </tbody>
+    </table>
+    
+    <div class="qr-section">
+        <div class="qr-placeholder">QR-код<br>партии</div>
+        <div class="footer" style="flex: 1; margin-left: 20px;">
+            <div class="signature">
+                <div class="signature-line"></div>
+                <div class="signature-label">Мастер участка</div>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <div class="signature-label">Контролёр ОТК</div>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <div class="signature-label">Нач. производства</div>
+            </div>
+            <div class="signature">
+                <div class="signature-line"></div>
+                <div class="signature-label">Принял на склад</div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

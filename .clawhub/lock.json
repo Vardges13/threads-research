@@ -1,0 +1,273 @@
+{
+  "version": 1,
+  "skills": {
+    "focus-deep-work": {
+      "version": "1.0.0",
+      "installedAt": 1769981076630
+    },
+    "50-ai-templates-to-save-time-and-improve-productiv-545d62aa": {
+      "version": "1.0.0",
+      "installedAt": 1769981080657
+    },
+    "flowmind": {
+      "version": "1.0.2",
+      "installedAt": 1769981084489
+    },
+    "skill-email-management": {
+      "version": "1.0.0",
+      "installedAt": 1769981089003
+    },
+    "adhd-body-doubling": {
+      "version": "0.1.0",
+      "installedAt": 1769981093398
+    },
+    "yahoo-finance-tqxkb": {
+      "version": "1.0.0",
+      "installedAt": 1769981096980
+    },
+    "blog-writer": {
+      "version": "0.1.0",
+      "installedAt": 1769981112452
+    },
+    "agent-browser": {
+      "version": "0.2.0",
+      "installedAt": 1769983538184
+    },
+    "news-aggregator-skill": {
+      "version": "0.1.0",
+      "installedAt": 1769983579662
+    },
+    "claude-code-usage": {
+      "version": "1.2.0",
+      "installedAt": 1769983723460
+    },
+    "threads": {
+      "version": "1.0.0",
+      "installedAt": 1770022259088
+    },
+    "typefully": {
+      "version": "1.0.1",
+      "installedAt": 1770155938796
+    },
+    "telegram-bot": {
+      "version": "1.0.0",
+      "installedAt": 1770156070360
+    },
+    "cursor-agent": {
+      "version": "2.1.0",
+      "installedAt": 1770156165483
+    },
+    "better-notion": {
+      "version": "1.1.0",
+      "installedAt": 1770156976606
+    },
+    "marketing-mode": {
+      "version": "1.0.0",
+      "installedAt": 1770156979273
+    },
+    "ai-landing": {
+      "version": "1.0.1",
+      "installedAt": 1770156981946
+    },
+    "youtube-transcript": {
+      "version": "1.0.1",
+      "installedAt": 1770156984295
+    },
+    "demo-video": {
+      "version": "1.0.0",
+      "installedAt": 1770156987130
+    },
+    "activecampaign": {
+      "version": "1.0.0",
+      "installedAt": 1770156989959
+    },
+    "video-subtitles": {
+      "version": "1.0.0",
+      "installedAt": 1770158172123
+    },
+    "instagram-marketing": {
+      "version": "1.0.0",
+      "installedAt": 1770158174618
+    },
+    "brave-search": {
+      "version": "1.0.1",
+      "installedAt": 1770158176837
+    },
+    "web-deploy-github": {
+      "version": "1.0.0",
+      "installedAt": 1770158179897
+    },
+    "self-improving-agent": {
+      "version": "1.0.5",
+      "installedAt": 1770249230661
+    },
+    "clawddocs": {
+      "version": "1.2.2",
+      "installedAt": 1770249232315
+    },
+    "gog": {
+      "version": "1.0.0",
+      "installedAt": 1770249233506
+    },
+    "caldav-calendar": {
+      "version": "1.0.1",
+      "installedAt": 1770249234709
+    },
+    "proactive-agent": {
+      "version": "3.0.0",
+      "installedAt": 1770249235948
+    },
+    "byterover": {
+      "version": "1.2.2",
+      "installedAt": 1770249237641
+    },
+    "auto-updater": {
+      "version": "1.0.0",
+      "installedAt": 1770249239066
+    },
+    "wacli": {
+      "version": "1.0.0",
+      "installedAt": 1770249240361
+    },
+    "summarize": {
+      "version": "1.0.0",
+      "installedAt": 1770249241586
+    },
+    "youtube-watcher": {
+      "version": "1.0.0",
+      "installedAt": 1770249934594
+    },
+    "humanizer": {
+      "version": "1.0.0",
+      "installedAt": 1770249936708
+    },
+    "homeassistant": {
+      "version": "1.0.0",
+      "installedAt": 1770249937991
+    },
+    "clawdhub": {
+      "version": "1.0.0",
+      "installedAt": 1770249939598
+    },
+    "google-workspace-mcp": {
+      "version": "1.0.0",
+      "installedAt": 1770249941550
+    },
+    "deep-research": {
+      "version": "1.0.1",
+      "installedAt": 1770249942988
+    },
+    "nano-banana-pro": {
+      "version": "1.0.1",
+      "installedAt": 1770249944531
+    },
+    "prompt-guard": {
+      "version": "2.6.1",
+      "installedAt": 1770249947068
+    },
+    "humanize-ai-text": {
+      "version": "1.0.0",
+      "installedAt": 1770249948780
+    },
+    "find-skills": {
+      "version": "0.1.0",
+      "installedAt": 1770249950414
+    },
+    "trello": {
+      "version": "1.0.0",
+      "installedAt": 1770249957778
+    },
+    "ai-compound": {
+      "version": "1.0.1",
+      "installedAt": 1770249959903
+    },
+    "answeroverflow": {
+      "version": "1.0.2",
+      "installedAt": 1770249961920
+    },
+    "stock-analysis": {
+      "version": "6.2.0",
+      "installedAt": 1770249964588
+    },
+    "frontend-design": {
+      "version": "1.0.0",
+      "installedAt": 1770249966484
+    },
+    "pinterest-pub": {
+      "version": "1.0.1",
+      "installedAt": 1770282474711
+    },
+    "proactive-agent-1-2-4": {
+      "version": "1.0.0",
+      "installedAt": 1770316129847
+    },
+    "dreaming": {
+      "version": "1.0.1",
+      "installedAt": 1770316131113
+    },
+    "blrd": {
+      "version": "1.0.0",
+      "installedAt": 1770316132448
+    },
+    "fal": {
+      "version": "1.0.0",
+      "installedAt": 1770316139355
+    },
+    "agentic-ai-gold": {
+      "version": "4.0.0",
+      "installedAt": 1770316141213
+    },
+    "xai-plus": {
+      "version": "2.0.2",
+      "installedAt": 1770316143213
+    },
+    "model-router": {
+      "version": "1.1.0",
+      "installedAt": 1770413033396
+    },
+    "remotion-video-toolkit": {
+      "version": "1.4.0",
+      "installedAt": 1770418743305
+    },
+    "technews": {
+      "version": "1.0.0",
+      "installedAt": 1770418745868
+    },
+    "nodetool": {
+      "version": "0.6.3",
+      "installedAt": 1770418748311
+    },
+    "react-email-skills": {
+      "version": "1.0.0",
+      "installedAt": 1770418752897
+    },
+    "resume-builder": {
+      "version": "1.0.0",
+      "installedAt": 1770418762283
+    },
+    "senior-architect": {
+      "version": "1.0.0",
+      "installedAt": 1770418765154
+    },
+    "tdd-guide": {
+      "version": "1.0.0",
+      "installedAt": 1770418768732
+    },
+    "slack": {
+      "version": "1.0.0",
+      "installedAt": 1770418770862
+    },
+    "discord": {
+      "version": "1.0.1",
+      "installedAt": 1770418773067
+    },
+    "conventional-commits": {
+      "version": "1.0.1",
+      "installedAt": 1770418775178
+    },
+    "qwen-tts": {
+      "version": "1.0.0",
+      "installedAt": 1770453473094
+    }
+  }
+}
