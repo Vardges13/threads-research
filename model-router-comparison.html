@@ -1,0 +1,337 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Сравнение model-router решений</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            color: white;
+            padding: 24px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+        }
+        
+        .header .subtitle {
+            opacity: 0.9;
+            font-size: 16px;
+        }
+        
+        .table-container {
+            padding: 0;
+            overflow-x: auto;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+        }
+        
+        .comparison-table th {
+            background: #f8fafc;
+            padding: 16px 20px;
+            text-align: left;
+            font-weight: 600;
+            color: #334155;
+            border-bottom: 2px solid #e2e8f0;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+        }
+        
+        .comparison-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+        
+        .comparison-table tr:hover {
+            background-color: #f1f5f9;
+        }
+        
+        .feature-name {
+            font-weight: 600;
+            color: #1e293b;
+            min-width: 180px;
+        }
+        
+        .checkmark {
+            color: #22c55e;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .cross {
+            color: #ef4444;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        
+        .value {
+            font-weight: 500;
+            color: #475569;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-weight: 600;
+        }
+        
+        .recommendation {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            padding: 24px;
+            margin: 0;
+            border-top: 1px solid #e2e8f0;
+        }
+        
+        .recommendation h3 {
+            color: #1e40af;
+            font-size: 20px;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .recommendation p {
+            color: #1e40af;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+        
+        .copy-section {
+            padding: 24px;
+            text-align: center;
+            border-top: 1px solid #e2e8f0;
+            background: #f8fafc;
+        }
+        
+        .copy-btn {
+            background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+            color: white;
+            border: none;
+            padding: 12px 32px;
+            border-radius: 8px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            box-shadow: 0 4px 12px rgba(34, 197, 94, 0.3);
+        }
+        
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(34, 197, 94, 0.4);
+        }
+        
+        .copy-btn:active {
+            transform: translateY(0);
+        }
+        
+        .toast {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            background: #22c55e;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            font-weight: 600;
+            box-shadow: 0 8px 24px rgba(34, 197, 94, 0.3);
+            transform: translateY(100px);
+            opacity: 0;
+            transition: all 0.3s ease;
+            z-index: 1000;
+        }
+        
+        .toast.show {
+            transform: translateY(0);
+            opacity: 1;
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 12px;
+            }
+            
+            .header h1 {
+                font-size: 22px;
+            }
+            
+            .comparison-table {
+                font-size: 12px;
+            }
+            
+            .comparison-table th,
+            .comparison-table td {
+                padding: 12px 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>⚖️ Сравнение с нашим model-router</h1>
+            <div class="subtitle">Анализ альтернативных решений для умного роутинга моделей</div>
+        </div>
+        
+        <div class="table-container">
+            <table class="comparison-table" id="comparisonTable">
+                <thead>
+                    <tr>
+                        <th class="feature-name">Характеристика</th>
+                        <th>Наш model-router</th>
+                        <th>OpenRouter SDK</th>
+                        <th>Trending Models</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="feature-name">Модели</td>
+                        <td class="value">15-20</td>
+                        <td class="value"><span class="highlight">300+</span> ✅</td>
+                        <td class="value">9 (топовых)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Автоинструменты</td>
+                        <td class="cross">❌</td>
+                        <td class="checkmark">✅</td>
+                        <td class="cross">❌</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Актуальность</td>
+                        <td class="value">Статично</td>
+                        <td class="checkmark">✅</td>
+                        <td class="value">✅ (еженедельно)</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">Стоп-условия</td>
+                        <td class="cross">❌</td>
+                        <td class="checkmark">✅</td>
+                        <td class="cross">❌</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">OAuth</td>
+                        <td class="cross">❌</td>
+                        <td class="checkmark">✅</td>
+                        <td class="cross">❌</td>
+                    </tr>
+                    <tr>
+                        <td class="feature-name">API ключи</td>
+                        <td class="value">Локальные</td>
+                        <td class="value">Центральные</td>
+                        <td class="value">Центральные</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div class="recommendation">
+            <h3>🎯 Рекомендация:</h3>
+            <p><strong>OpenRouter SDK</strong> выглядит как серьёзный upgrade! Официальная поддержка, больше возможностей, лучшая экосистема, актуальные модели.</p>
+        </div>
+        
+        <div class="copy-section">
+            <button class="copy-btn" onclick="copyTable()">
+                📋 Копировать таблицу
+            </button>
+        </div>
+    </div>
+    
+    <div class="toast" id="toast">
+        ✅ Таблица скопирована в буфер обмена!
+    </div>
+
+    <script>
+        function copyTable() {
+            const table = document.getElementById('comparisonTable');
+            
+            // Создаём текстовую версию таблицы
+            let textContent = '';
+            
+            // Заголовки
+            const headers = table.querySelectorAll('thead th');
+            const headerText = Array.from(headers).map(th => th.textContent.trim()).join('\t');
+            textContent += headerText + '\n';
+            
+            // Строки данных
+            const rows = table.querySelectorAll('tbody tr');
+            rows.forEach(row => {
+                const cells = row.querySelectorAll('td');
+                const rowText = Array.from(cells).map(td => {
+                    let text = td.textContent.trim();
+                    // Заменяем эмодзи на текст
+                    text = text.replace('✅', 'ДА');
+                    text = text.replace('❌', 'НЕТ');
+                    return text;
+                }).join('\t');
+                textContent += rowText + '\n';
+            });
+            
+            // Добавляем рекомендацию
+            textContent += '\nРекомендация:\n';
+            textContent += 'OpenRouter SDK выглядит как серьёзный upgrade! Официальная поддержка, больше возможностей, лучшая экосистема, актуальные модели.';
+            
+            // Копируем в буфер обмена
+            navigator.clipboard.writeText(textContent).then(() => {
+                showToast();
+            }).catch(err => {
+                console.error('Ошибка копирования:', err);
+                // Fallback для старых браузеров
+                const textArea = document.createElement('textarea');
+                textArea.value = textContent;
+                document.body.appendChild(textArea);
+                textArea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textArea);
+                showToast();
+            });
+        }
+        
+        function showToast() {
+            const toast = document.getElementById('toast');
+            toast.classList.add('show');
+            
+            setTimeout(() => {
+                toast.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
