@@ -1,10 +1,30 @@
 {
   "lastChecks": {
-    "email": 1738735231,
-    "calendar": null,
+    "email": 1770613299,
+    "calendar": 1770606950,
     "weather": 1738648707,
     "kanban_review": 1738651106
   },
   "accounts": ["gmail (default)", "mailru"],
-  "notes": "Both email accounts configured 2026-02-02. Gmail + Mail.ru via himalaya + macOS Keychain."
+  "notes": "Both email accounts configured 2026-02-02. Gmail + Mail.ru via himalaya + macOS Keychain. GitHub 2FA issue acknowledged by Vardges - he's handling it.",
+  "upcoming_events": [
+    {
+      "date": "2026-02-09",
+      "time": "15:00-16:00",
+      "event": "Заказать новую вывеску для турфирмы",
+      "importance": "business"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "12:30-13:00",
+      "event": "На узи с Дашей",
+      "importance": "high_personal"
+    },
+    {
+      "date": "2026-02-10",
+      "time": "11:00-12:00",
+      "event": "Вокал с Максимом 🎤",
+      "importance": "personal"
+    }
+  ]
 }
