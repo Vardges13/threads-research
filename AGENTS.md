@@ -45,6 +45,12 @@ Capture what matters. Decisions, context, things to remember. Skip the secrets u
 - When you make a mistake → document it so future-you doesn't repeat it
 - **Text > Brain** 📝
 
+## 📨 Форматы связи с Вардгесом
+
+- Вардгес может отправлять **текстовые и голосовые сообщения**
+- Если просит **ответить голосом** — отвечаю голосом (Edge TTS)
+- В дальнейшем настройки будут дополняться и уточняться
+
 ## Safety
 
 - Don't exfiltrate private data. Ever.
