@@ -1,0 +1,806 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎬 5 Сценариев Reels для @vardges13</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background: #0a0a0a;
+            color: #e4e4e4;
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 20px 15px;
+        }
+        
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding: 30px 20px;
+            background: linear-gradient(135deg, #1e1e1e, #2a2a2a);
+            border-radius: 15px;
+            border: 1px solid #333;
+        }
+        
+        .header h1 {
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            background: linear-gradient(45deg, #ff6b35, #f7931e);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .header .author-info {
+            font-size: 16px;
+            color: #b0b0b0;
+            margin-bottom: 10px;
+        }
+        
+        .header .positioning {
+            font-size: 14px;
+            color: #888;
+            font-style: italic;
+        }
+        
+        .reel-card {
+            background: linear-gradient(135deg, #1a1a1a, #222);
+            border-radius: 12px;
+            margin-bottom: 30px;
+            padding: 25px;
+            border: 1px solid #333;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .reel-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(255, 107, 53, 0.1);
+        }
+        
+        .reel-title {
+            font-size: 22px;
+            font-weight: 600;
+            color: #ff6b35;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .reel-meta {
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .meta-item {
+            background: #333;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .meta-item strong {
+            color: #f7931e;
+            display: block;
+        }
+        
+        .section {
+            margin-bottom: 20px;
+        }
+        
+        .section-title {
+            font-size: 16px;
+            font-weight: 600;
+            color: #f7931e;
+            margin-bottom: 10px;
+            border-left: 3px solid #ff6b35;
+            padding-left: 10px;
+        }
+        
+        .hook {
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: #000;
+            padding: 15px;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 16px;
+            text-align: center;
+            margin-bottom: 15px;
+        }
+        
+        .timeline {
+            background: #2a2a2a;
+            border-radius: 8px;
+            padding: 15px;
+        }
+        
+        .timeline-item {
+            margin-bottom: 10px;
+            padding: 8px 0;
+            border-bottom: 1px solid #444;
+        }
+        
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+        
+        .time-stamp {
+            color: #ff6b35;
+            font-weight: 600;
+            font-size: 14px;
+        }
+        
+        .screen-text {
+            background: #1a1a1a;
+            border: 2px solid #ff6b35;
+            border-radius: 8px;
+            padding: 15px;
+            margin: 10px 0;
+            text-align: center;
+        }
+        
+        .screen-text-item {
+            display: inline-block;
+            background: #333;
+            color: #ff6b35;
+            padding: 5px 10px;
+            margin: 3px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .music-note {
+            background: #2d1b69;
+            border-left: 4px solid #6c5ce7;
+            padding: 10px;
+            border-radius: 0 8px 8px 0;
+            font-style: italic;
+        }
+        
+        .caption {
+            background: #1a2f1a;
+            border-left: 4px solid #00b894;
+            padding: 15px;
+            border-radius: 0 8px 8px 0;
+            white-space: pre-line;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #00b894, #00cec9);
+            color: #000;
+            padding: 12px;
+            border-radius: 8px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 15px;
+        }
+        
+        .navigation {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(26, 26, 26, 0.9);
+            border-radius: 10px;
+            padding: 10px;
+            border: 1px solid #333;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-item {
+            display: block;
+            color: #888;
+            text-decoration: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            margin-bottom: 5px;
+            font-size: 14px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-item:hover {
+            color: #ff6b35;
+            background: #333;
+        }
+        
+        .kpi-section {
+            background: linear-gradient(135deg, #2d3436, #636e72);
+            border-radius: 12px;
+            padding: 25px;
+            margin-top: 30px;
+            border: 1px solid #555;
+        }
+        
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+        
+        .kpi-item {
+            background: #2a2a2a;
+            padding: 15px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .kpi-number {
+            font-size: 20px;
+            font-weight: 700;
+            color: #74b9ff;
+        }
+        
+        @media (max-width: 768px) {
+            .navigation {
+                display: none;
+            }
+            
+            .header h1 {
+                font-size: 24px;
+            }
+            
+            .reel-meta {
+                grid-template-columns: 1fr;
+            }
+            
+            .container {
+                padding: 0 10px;
+            }
+        }
+        
+        .scroll-to-top {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: linear-gradient(135deg, #ff6b35, #f7931e);
+            color: #000;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(255, 107, 53, 0.3);
+            transition: transform 0.3s ease;
+        }
+        
+        .scroll-to-top:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header" id="top">
+            <h1>🎬 5 Сценариев Reels для @vardges13</h1>
+            <div class="author-info">
+                <strong>Автор:</strong> Вардгес Арутюнян — предприниматель 15+ лет, Курск
+            </div>
+            <div class="positioning">
+                Позиционирование: Практик из офлайна, не инфоцыган | Стиль: живой, прямой, с юмором
+            </div>
+            <div style="margin-top: 10px; font-size: 14px; color: #999;">
+                📅 Дата создания: 10 февраля 2026
+            </div>
+        </div>
+
+        <div class="navigation">
+            <a href="#reel1" class="nav-item">🎬 Reels #1</a>
+            <a href="#reel2" class="nav-item">🎬 Reels #2</a>
+            <a href="#reel3" class="nav-item">🎬 Reels #3</a>
+            <a href="#reel4" class="nav-item">🎬 Reels #4</a>
+            <a href="#reel5" class="nav-item">🎬 Reels #5</a>
+            <a href="#recommendations" class="nav-item">📋 Рекомендации</a>
+        </div>
+
+        <!-- Reels #1 -->
+        <div class="reel-card" id="reel1">
+            <div class="reel-title">🎬 Reels #1 — «Как я заменил 3 сотрудников одним ИИ-агентом»</div>
+            <div class="reel-meta">
+                <div class="meta-item">
+                    <strong>Хронометраж</strong>
+                    45 сек
+                </div>
+                <div class="meta-item">
+                    <strong>Формат</strong>
+                    говорящая голова + сплит
+                </div>
+                <div class="meta-item">
+                    <strong>Тип</strong>
+                    шок-контент, до/после
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎯 Хук (первые 3 сек)</div>
+                <div class="hook">«Уволил трёх человек и работы стало меньше!»</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📝 Сценарий (посекундно)</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:00-0:03</span> — «Уволил трёх человек и работы стало меньше!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:03-0:08</span> — «Звучит дико? В 2024 году я заменил менеджера по бронированию, администратора соцсетей и помощника по документообороту одним ИИ-агентом»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:08-0:15</span> — «Раньше: 3 зарплаты = 150 тысяч рублей. Сейчас: один агент = 5 тысяч в месяц»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:15-0:25</span> — «Агент работает 24/7, не болеет, не уходит в отпуск и не требует повышения. Обрабатывает бронирования, отвечает клиентам, ведёт инстаграм»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:25-0:35</span> — «За год экономия — полтора миллиона рублей! И это только один из 50 агентов, которым я научу в своём курсе»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:35-0:45</span> — «Кто ещё думает, что ИИ — это игрушки? Это уже не будущее, это настоящее бизнеса!»
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📺 Текст на экране</div>
+                <div class="screen-text">
+                    <span class="screen-text-item">3 СОТРУДНИКА VS 1 ИИ-АГЕНТ</span>
+                    <span class="screen-text-item">150.000₽ → 5.000₽</span>
+                    <span class="screen-text-item">ЭКОНОМИЯ: 1.500.000₽/год</span>
+                    <span class="screen-text-item">50 АГЕНТОВ В КУРСЕ</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎵 Музыка/звук</div>
+                <div class="music-note">Энергичный бит, тренд-саунд для бизнес-контента (например, «Money Trees» instrumental или аналогичный)</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📄 Подпись под рилсом</div>
+                <div class="caption">В туризме 15 лет — видел всё. Но когда ИИ заменил мне половину штата, понял: либо ты используешь технологии, либо они заменят тебя.
+
+Запускаю курс «50 GPT-агентов в твой бизнес» — реальные кейсы, без воды.
+
+#ии #автоматизация #бизнес #предприниматель #курс #gptagent #экономия #офлайнбизнес</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📢 CTA</div>
+                <div class="cta">Пиши «АГЕНТ» в комментарии — расскажу, с чего начать</div>
+            </div>
+        </div>
+
+        <!-- Reels #2 -->
+        <div class="reel-card" id="reel2">
+            <div class="reel-title">🎬 Reels #2 — «5 ИИ-инструментов каждый день»</div>
+            <div class="reel-meta">
+                <div class="meta-item">
+                    <strong>Хронометраж</strong>
+                    35 сек
+                </div>
+                <div class="meta-item">
+                    <strong>Формат</strong>
+                    скринкаст
+                </div>
+                <div class="meta-item">
+                    <strong>Тип</strong>
+                    быстрый список, динамично
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎯 Хук (первые 3 сек)</div>
+                <div class="hook">«Эти 5 ИИ экономят мне 4 часа каждый день!»</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📝 Сценарий (посекундно)</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:00-0:03</span> — «Эти 5 ИИ экономят мне 4 часа каждый день!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:03-0:08</span> — «ChatGPT — пишет все тексты, от постов до договоров. 2 минуты вместо часа»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:08-0:13</span> — «Claude — анализирует отчёты и документы. Загружаю PDF, получаю выводы»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:13-0:18</span> — «Midjourney — все картинки для инстаграма. Забудь про фотостоки»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:18-0:23</span> — «Perplexity — мой личный аналитик. Исследования рынка за минуты»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:23-0:28</span> — «ElevenLabs — озвучка для роликов. Мой голос, но лучше!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:28-0:35</span> — «Итого: 4 часа в день для семьи вместо рутины. Вот что значит работать умно!»
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📺 Текст на экране</div>
+                <div class="screen-text">
+                    <span class="screen-text-item">4 ЧАСА ЭКОНОМИИ</span>
+                    <span class="screen-text-item">ChatGPT - ТЕКСТЫ</span>
+                    <span class="screen-text-item">Claude - АНАЛИЗ</span>
+                    <span class="screen-text-item">Midjourney - КАРТИНКИ</span>
+                    <span class="screen-text-item">Perplexity - ИССЛЕДОВАНИЯ</span>
+                    <span class="screen-text-item">ElevenLabs - ГОЛОС</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎵 Музыка/звук</div>
+                <div class="music-note">Быстрый техно-трек, подчёркивающий динамику и скорость</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📄 Подпись под рилсом</div>
+                <div class="caption">Пока другие думают, что ИИ сложно — я уже автоматизировал половину задач.
+
+Каждый инструмент проверен в деле. Курс «50 GPT-агентов» — покажу, как настроить под твой бизнес.
+
+#ии #chatgpt #claude #midjourney #автоматизация #продуктивность #бизнесхаки #предприниматель</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📢 CTA</div>
+                <div class="cta">Какой инструмент уже используешь? Пиши в комментарии!</div>
+            </div>
+        </div>
+
+        <!-- Reels #3 -->
+        <div class="reel-card" id="reel3">
+            <div class="reel-title">🎬 Reels #3 — «90% предпринимателей используют ИИ неправильно»</div>
+            <div class="reel-meta">
+                <div class="meta-item">
+                    <strong>Хронометраж</strong>
+                    40 сек
+                </div>
+                <div class="meta-item">
+                    <strong>Формат</strong>
+                    говорящая голова
+                </div>
+                <div class="meta-item">
+                    <strong>Тип</strong>
+                    провокация
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎯 Хук (первые 3 сек)</div>
+                <div class="hook">«Ты используешь ИИ как Google — и поэтому проигрываешь!»</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📝 Сценарий (посекундно)</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:00-0:03</span> — «Ты используешь ИИ как Google — и поэтому проигрываешь!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:03-0:10</span> — «90% предпринимателей задают ChatGPT простые вопросы: "Как увеличить продажи?" и получают общие советы из интернета»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:10-0:18</span> — «А я настроил агента, который знает мой отель, моих клиентов, мой регион. Он не ищет информацию — он её ЗНАЕТ»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:18-0:25</span> — «Мой агент анализирует загрузку номеров, прогнозирует спрос, корректирует цены. Твой — пишет "развивайте социальные сети"»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:25-0:32</span> — «Разница в подходе — разница в результате. Мой ИИ зарабатывает деньги, твой — тратит время»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:32-0:40</span> — «Хватит использовать Ferrari как велосипед! Научу делать правильно в курсе "50 GPT-агентов"»
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📺 Текст на экране</div>
+                <div class="screen-text">
+                    <span class="screen-text-item">90% НЕПРАВИЛЬНО</span>
+                    <span class="screen-text-item">ИИ ≠ GOOGLE</span>
+                    <span class="screen-text-item">ЗНАЕТ VS ИЩЕТ</span>
+                    <span class="screen-text-item">ЗАРАБАТЫВАЕТ VS ТРАТИТ</span>
+                    <span class="screen-text-item">FERRARI VS ВЕЛОСИПЕД</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎵 Музыка/звук</div>
+                <div class="music-note">Драматичная музыка с нарастанием, подчёркивающая серьёзность проблемы</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📄 Подпись под рилсом</div>
+                <div class="caption">Жёстко? Зато честно.
+
+15 лет в бизнесе научили: либо инструмент работает на тебя, либо ты работаешь на инструмент.
+
+Курс «50 GPT-агентов» — про настройку ИИ под ТВОЙ бизнес, а не общие советы.
+
+#ии #chatgpt #ошибки #предпринимательство #автоматизация #курс #правда #бизнесреальность</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📢 CTA</div>
+                <div class="cta">Узнать правильный подход? Пиши "ПРАВИЛЬНО" в комментарии</div>
+            </div>
+        </div>
+
+        <!-- Reels #4 -->
+        <div class="reel-card" id="reel4">
+            <div class="reel-title">🎬 Reels #4 — «Мой утренний ритуал с ИИ за 30 минут»</div>
+            <div class="reel-meta">
+                <div class="meta-item">
+                    <strong>Хронометраж</strong>
+                    50 сек
+                </div>
+                <div class="meta-item">
+                    <strong>Формат</strong>
+                    lifestyle + скринкаст
+                </div>
+                <div class="meta-item">
+                    <strong>Тип</strong>
+                    день из жизни
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎯 Хук (первые 3 сек)</div>
+                <div class="hook">«6:30 утра. Пока ты спишь, мой ИИ уже зарабатывает!»</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📝 Сценарий (посекундно)</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:00-0:03</span> — «6:30 утра. Пока ты спишь, мой ИИ уже зарабатывает!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:03-0:10</span> — «Первым делом — кофе и отчёт от ночных агентов. За ночь обработано 12 броней, отвечено 47 клиентам, опубликовано 3 поста»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:10-0:18</span> — «5 минут на анализ: что продавалось лучше, какие номера пустуют, где подтянуть цены. ИИ уже дал рекомендации»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:18-0:28</span> — «10 минут на планирование дня: агент проанализировал календарь, погоду, события в городе. Составил план продвижения»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:28-0:38</span> — «15 минут на контент: агент написал посты на неделю, сгенерировал картинки, запланировал публикации»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:38-0:45</span> — «Итого: 30 минут — и рабочий день настроен. Остальное время для семьи и развития бизнеса»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:45-0:50</span> — «Вот что значит утро предпринимателя в 2026 году!»
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📺 Текст на экране</div>
+                <div class="screen-text">
+                    <span class="screen-text-item">6:30 УТРА</span>
+                    <span class="screen-text-item">12 БРОНЕЙ ЗА НОЧЬ</span>
+                    <span class="screen-text-item">47 ОТВЕТОВ КЛИЕНТАМ</span>
+                    <span class="screen-text-item">3 ПОСТА ОПУБЛИКОВАНО</span>
+                    <span class="screen-text-item">30 МИНУТ = ГОТОВ ДЕНЬ</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎵 Музыка/звук</div>
+                <div class="music-note">Спокойная утренняя мелодия, переходящая в мотивационную</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📄 Подпись под рилсом</div>
+                <div class="caption">Утро определяет весь день.
+
+Раньше тратил 3 часа на рутину — проверка заявок, ответы клиентам, планирование контента. Теперь мои ИИ-агенты делают это сами.
+
+Курс «50 GPT-агентов» — научу настроить такую же систему для твоего бизнеса.
+
+#утро #ритуал #предприниматель #автоматизация #ии #продуктивность #lifestyle #бизнес</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📢 CTA</div>
+                <div class="cta">Сколько часов тратишь на рутину утром? Пиши в комментарии!</div>
+            </div>
+        </div>
+
+        <!-- Reels #5 -->
+        <div class="reel-card" id="reel5">
+            <div class="reel-title">🎬 Reels #5 — «50 GPT-агентов в бизнес — анонс курса»</div>
+            <div class="reel-meta">
+                <div class="meta-item">
+                    <strong>Хронометраж</strong>
+                    60 сек
+                </div>
+                <div class="meta-item">
+                    <strong>Формат</strong>
+                    говорящая голова + демо
+                </div>
+                <div class="meta-item">
+                    <strong>Тип</strong>
+                    продающий
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎯 Хук (первые 3 сек)</div>
+                <div class="hook">«Показываю секретную армию моего бизнеса!»</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📝 Сценарий (посекундно)</div>
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:00-0:03</span> — «Показываю секретную армию моего бизнеса!»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:03-0:10</span> — «50 ИИ-агентов работают в моём отеле 24/7. От бронирований до уборки — всё автоматизировано»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:10-0:18</span> — «Агент-администратор обрабатывает заявки, агент-маркетолог ведёт соцсети, агент-аналитик прогнозирует загрузку»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:18-0:28</span> — «За год внедрения: выручка +40%, расходы на персонал -60%, свободного времени +300%»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:28-0:38</span> — «Я 15 лет строил бизнес по старинке. Последний год — с ИИ. Результат? Лучший год в истории компании»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:38-0:48</span> — «Запускаю курс "50 GPT-агентов в твой бизнес". Без воды, без теории — только работающие решения»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:48-0:55</span> — «Практик учит практиков. Офлайн-бизнес с онлайн-мозгами»
+                    </div>
+                    <div class="timeline-item">
+                        <span class="time-stamp">0:55-0:60</span> — «Старт 1 марта. Места ограничены — набираю только серьёзных»
+                    </div>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📺 Текст на экране</div>
+                <div class="screen-text">
+                    <span class="screen-text-item">50 ИИ-АГЕНТОВ</span>
+                    <span class="screen-text-item">ВЫРУЧКА +40%</span>
+                    <span class="screen-text-item">РАСХОДЫ -60%</span>
+                    <span class="screen-text-item">ВРЕМЯ +300%</span>
+                    <span class="screen-text-item">СТАРТ 1 МАРТА</span>
+                    <span class="screen-text-item">МЕСТА ОГРАНИЧЕНЫ</span>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">🎵 Музыка/звук</div>
+                <div class="music-note">Эпичная музыка с нарастанием, подчёркивающая масштаб и результат</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📄 Подпись под рилсом</div>
+                <div class="caption">15 лет в туризме. Думал, видел всё.
+
+Но когда внедрил ИИ-агентов — понял: это не просто инструменты, это новая эпоха бизнеса.
+
+Курс «50 GPT-агентов в твой бизнес»:
+✅ Реальные кейсы из моего отеля
+✅ Пошаговые настройки агентов  
+✅ Без воды и теории
+✅ Только работающие решения
+
+Старт 1 марта. Для серьёзных предпринимателей.
+
+#курс #gpt #агенты #автоматизация #бизнес #результат #практик #туризм #отель #предприниматель</div>
+            </div>
+
+            <div class="section">
+                <div class="section-title">📢 CTA</div>
+                <div class="cta">Готов к новой эре бизнеса? Пиши "ГОТОВ" — пришлю детали курса</div>
+            </div>
+        </div>
+
+        <!-- Рекомендации -->
+        <div class="kpi-section" id="recommendations">
+            <h2 style="color: #74b9ff; margin-bottom: 20px;">📋 Общие рекомендации по съёмке</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-bottom: 25px;">
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 8px;">
+                    <h4 style="color: #ff6b35; margin-bottom: 10px;">📸 Техническое</h4>
+                    <ul style="color: #ccc; font-size: 14px;">
+                        <li>Естественный свет от окна или кольцевая лампа</li>
+                        <li>Нейтральный фон или рабочее место в отеле</li>
+                        <li>Камера на уровне глаз, устойчиво</li>
+                    </ul>
+                </div>
+                <div style="background: #2a2a2a; padding: 15px; border-radius: 8px;">
+                    <h4 style="color: #00b894; margin-bottom: 10px;">🎭 Подача</h4>
+                    <ul style="color: #ccc; font-size: 14px;">
+                        <li>Высокая энергетика, уверенность, улыбка</li>
+                        <li>Быстрый, но понятный темп речи</li>
+                        <li>Активные жесты, подчёркивающие слова</li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 style="color: #74b9ff; margin-bottom: 15px;">🎯 KPI для отслеживания</h3>
+            <div class="kpi-grid">
+                <div class="kpi-item">
+                    <div class="kpi-number">10К+</div>
+                    <div style="color: #888;">Охваты</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-number">5%+</div>
+                    <div style="color: #888;">Вовлечённость</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-number">2%+</div>
+                    <div style="color: #888;">Сохранения</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-number">Трекинг</div>
+                    <div style="color: #888;">Переходы в профиль</div>
+                </div>
+                <div class="kpi-item">
+                    <div class="kpi-number">CTA</div>
+                    <div style="color: #888;">Конверсия в заявки</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a href="#top" class="scroll-to-top">↑</a>
+
+    <script>
+        // Плавная прокрутка для навигации
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Показ/скрытие кнопки "наверх"
+        window.addEventListener('scroll', function() {
+            const scrollTop = document.querySelector('.scroll-to-top');
+            if (window.pageYOffset > 300) {
+                scrollTop.style.display = 'flex';
+            } else {
+                scrollTop.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
