@@ -3,8 +3,17 @@
   "client_secret": "REDACTED",
   "redirect_uri": "https://localhost/callback",
   "user_id": 25519272,
-  "access_token": "F0YqJfuhe1TqSLwP0e5hcWumWAX3DYrLToKZnTvvY4Y.XPz7TjLWIN4XkTcupPg6UMwAvDn9pe5QFGMU5m88cQI",
-  "refresh_token": "MnzWbqYW-vazwymE-LJoJ3NYrV2DRwRp0kM-E9_IfZ8.qLJcQQJLuTDM4a5ZVGpIFY3wVjHt2r0yDddEEUL8__0",
-  "token_expires_in": 3599,
-  "scopes": ["read:recovery", "read:cycles", "read:sleep", "read:workout", "read:profile", "read:body_measurement", "offline"]
+  "access_token": "REDACTED",
+  "refresh_token": "REDACTED",
+  "token_expires_at": "2026-02-09T22:10:00Z",
+  "scopes": [
+    "read:recovery",
+    "read:cycles",
+    "read:sleep",
+    "read:workout",
+    "read:profile",
+    "read:body_measurement",
+    "offline"
+  ],
+  "updated": "2026-02-09"
 }

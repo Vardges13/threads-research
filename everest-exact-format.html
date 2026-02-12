@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Организационная структура ООО «Эверест-Тех»</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'SF Pro Display', Roboto, sans-serif;
+            font-size: 8px;
+            line-height: 1.25;
+            color: #2c3e50;
+            background: #fff;
+            padding: 12px;
+        }
+        
+        /* Header */
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .header h1 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        
+        .header .subtitle {
+            font-size: 10px;
+            color: #555;
+            margin-bottom: 2px;
+        }
+        
+        .header .company {
+            font-size: 11px;
+            font-weight: 600;
+        }
+        
+        /* General Director */
+        .general-director {
+            text-align: center;
+            background: linear-gradient(135deg, #3498db, #2980b9);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            margin: 10px auto;
+            width: fit-content;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        /* Three columns */
+        .three-blocks {
+            display: flex;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .block {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        .block-header {
+            padding: 6px 8px;
+            font-size: 9px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .tech-header { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .prod-header { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .pdo-header { background: linear-gradient(135deg, #27ae60, #1e8449); }
+        
+        .block-content {
+            padding: 6px;
+        }
+        
+        /* Department */
+        .dept {
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .dept:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .dept-title {
+            font-size: 8px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 2px;
+        }
+        
+        .dept-head {
+            font-size: 7px;
+            font-weight: 600;
+            color: #c0392b;
+            margin-bottom: 1px;
+        }
+        
+        .dept-staff {
+            font-size: 6.5px;
+            color: #34495e;
+            margin-bottom: 2px;
+        }
+        
+        .dept-desc {
+            font-size: 6px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+        
+        .dept-warning {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 3px;
+            padding: 2px 4px;
+            font-size: 6px;
+            font-weight: 600;
+            color: #856404;
+            margin-top: 2px;
+            display: inline-block;
+        }
+        
+        /* Production sections */
+        .prod-section {
+            background: #f8f9fa;
+            border-left: 2px solid #e67e22;
+            padding: 4px 6px;
+            margin-bottom: 4px;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .section-num {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 12px;
+            font-size: 6px;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+        
+        .section-title {
+            font-size: 7px;
+            font-weight: 700;
+            color: #2c3e50;
+        }
+        
+        .section-equip {
+            font-size: 6px;
+            color: #7f8c8d;
+            font-style: italic;
+            margin-top: 1px;
+        }
+        
+        /* Deputy note */
+        .deputy-note {
+            background: #e8f5e9;
+            border-left: 2px solid #27ae60;
+            padding: 4px 6px;
+            margin-bottom: 6px;
+            border-radius: 0 3px 3px 0;
+            font-size: 6.5px;
+            font-weight: 600;
+            color: #27ae60;
+        }
+        
+        /* Principles */
+        .principles {
+            margin-top: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 8px;
+            border-left: 3px solid #3498db;
+        }
+        
+        .principles h3 {
+            font-size: 10px;
+            font-weight: 700;
+            color: #2c3e50;
+            margin-bottom: 6px;
+        }
+        
+        .principle {
+            font-size: 6.5px;
+            margin-bottom: 3px;
+            padding-left: 10px;
+            position: relative;
+        }
+        
+        .principle:before {
+            content: "✅";
+            position: absolute;
+            left: 0;
+            font-size: 6px;
+        }
+        
+        .principle strong {
+            color: #2c3e50;
+        }
+        
+        /* Summary cards */
+        .summary-cards {
+            display: flex;
+            gap: 6px;
+            margin-top: 10px;
+        }
+        
+        .card {
+            flex: 1;
+            text-align: center;
+            border-radius: 5px;
+            padding: 6px;
+            color: white;
+        }
+        
+        .card-tech { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .card-prod { background: linear-gradient(135deg, #e67e22, #d35400); }
+        .card-pdo { background: linear-gradient(135deg, #27ae60, #1e8449); }
+        
+        .card-emoji {
+            font-size: 14px;
+            display: block;
+            margin-bottom: 2px;
+        }
+        
+        .card-title {
+            font-size: 8px;
+            font-weight: 700;
+            margin-bottom: 2px;
+        }
+        
+        .card-desc {
+            font-size: 6px;
+            opacity: 0.9;
+        }
+        
+        /* Footer */
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 7px;
+            color: #95a5a6;
+            padding-top: 6px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>🏭 Организационная структура</h1>
+        <div class="subtitle">Производство и инженерно-техническое обеспечение</div>
+        <div class="company">ООО «Эверест-Тех»</div>
+    </div>
+    
+    <!-- General Director -->
+    <div class="general-director">👔 Генеральный директор</div>
+    
+    <!-- Three main blocks -->
+    <div class="three-blocks">
+        <!-- Technical Director Block -->
+        <div class="block">
+            <div class="block-header tech-header">🔬 Блок технического директора</div>
+            <div class="block-content">
+                <div class="dept">
+                    <div class="dept-title">📐 Конструкторское бюро (КБ)</div>
+                    <div class="dept-head">Начальник КБ</div>
+                    <div class="dept-staff">Инженер-конструктор<br>Чертёжник / CAD-оператор</div>
+                    <div class="dept-desc">Разработка изделий, рабочие чертежи, 3D-модели, согласование с заказчиком</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">✅ Отдел технического контроля (ОТК)</div>
+                    <div class="dept-head">Начальник ОТК</div>
+                    <div class="dept-staff">Контролёр (входной)<br>Контролёр (операционный / выходной)</div>
+                    <div class="dept-warning">⚠️ Независим от производства!</div>
+                    <div class="dept-desc">Входной контроль сырья, операционный по участкам, выходной ГП</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">⚙️ Технологический отдел</div>
+                    <div class="dept-head">Главный технолог</div>
+                    <div class="dept-staff">Инженер-технолог</div>
+                    <div class="dept-desc">Маршрутные карты, нормирование, оснастка, режимы резки/гибки/сварки/покраски</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🔩 Служба главного механика</div>
+                    <div class="dept-head">Главный механик</div>
+                    <div class="dept-staff">Наладчик оборудования<br>Электрик</div>
+                    <div class="dept-desc">ППР, ремонт, обслуживание оборудования по всем 5 участкам</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Production Manager Block -->
+        <div class="block">
+            <div class="block-header prod-header">🏗️ Блок начальника производства</div>
+            <div class="block-content">
+                <div class="deputy-note">👨‍💼 Зам. начальника производства — операционный контроль, ежедневные планёрки с мастерами</div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">1</span>Заготовительный</div>
+                    <div class="section-equip">Лазер, КПП, гильотина</div>
+                    <div class="dept-head">Мастер участка</div>
+                    <div class="dept-staff">Оператор лазерного станка • Оператор КПП • Оператор гильотины • Стропальщик</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">2</span>Гибочный</div>
+                    <div class="section-equip">Листогибы CNC, панелегибы</div>
+                    <div class="dept-head">Мастер участка</div>
+                    <div class="dept-staff">Оператор листогиба • Оператор панелегиба • Подсобный рабочий</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">3</span>Сварочный</div>
+                    <div class="section-equip">MIG/TIG, сборка</div>
+                    <div class="dept-head">Мастер участка</div>
+                    <div class="dept-staff">Сварщик • Слесарь-сборщик</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">4</span>Покрасочный</div>
+                    <div class="section-equip">Порошковая покраска</div>
+                    <div class="dept-head">Мастер участка</div>
+                    <div class="dept-staff">Подготовщик поверхности • Оператор камеры • Оператор печи</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">5</span>Упаковка / отгрузка</div>
+                    <div class="section-equip">Упаковочная линия</div>
+                    <div class="dept-head">Мастер участка</div>
+                    <div class="dept-staff">Упаковщик • Комплектовщик</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- PDO Block -->
+        <div class="block">
+            <div class="block-header pdo-header">📦 Блок ПДО / Снабжение / Логистика</div>
+            <div class="block-content">
+                <div class="dept">
+                    <div class="dept-title">📋 ПДО (планово-диспетчерский отдел)</div>
+                    <div class="dept-head">Начальник ПДО</div>
+                    <div class="dept-staff">Плановик / нормировщик<br>Диспетчер производства</div>
+                    <div class="dept-desc">Сменные задания, контроль выполнения плана, межучастковая координация, учёт выработки</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🛒 Отдел снабжения</div>
+                    <div class="dept-head">Начальник отдела снабжения</div>
+                    <div class="dept-staff">Менеджер по закупкам</div>
+                    <div class="dept-desc">Закупка сырья (КУМЗ, Cladding Solutions), комплектующих, расходников. Контроль остатков, работа с поставщиками</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🚛 Отдел логистики</div>
+                    <div class="dept-head">Логист</div>
+                    <div class="dept-staff">Водитель / экспедитор</div>
+                    <div class="dept-desc">Доставка сырья, отгрузка готовой продукции, транспортная логистика, документооборот</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🏪 Склад</div>
+                    <div class="dept-head">Заведующий складом</div>
+                    <div class="dept-staff">Кладовщик (сырьё) • Кладовщик (готовая продукция) • Грузчик / стропальщик</div>
+                    <div class="dept-desc">Приёмка, хранение, учёт ТМЦ. Раздельно: склад сырья + склад ГП</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Principles -->
+    <div class="principles">
+        <h3>🔑 Принципы построения</h3>
+        <div class="principle"><strong>ОТК → Техдиректор:</strong> независим от производства. Начальник производства НЕ может давить на контроль качества</div>
+        <div class="principle"><strong>Техдиректор — «мозг»:</strong> КБ, технологи, ОТК, механик. Отвечает за ЧТО и КАК производить</div>
+        <div class="principle"><strong>Начпроизводства — «руки»:</strong> 5 участков, мастера, план. Отвечает за СКОЛЬКО и КОГДА</div>
+        <div class="principle"><strong>ПДО — «нервная система»:</strong> связывает снабжение, производство и отгрузку в единый поток</div>
+        <div class="principle"><strong>Мастер = единоначалие:</strong> один участок — один мастер, один ответственный</div>
+        <div class="principle"><strong>Три вертикали:</strong> Техдиректор (качество) + Начпроизводства (объём) + ПДО (координация) — баланс без перекосов</div>
+    </div>
+    
+    <!-- Summary cards -->
+    <div class="summary-cards">
+        <div class="card card-tech">
+            <span class="card-emoji">🔬</span>
+            <div class="card-title">Технический директор</div>
+            <div class="card-desc">Качество, технологии, КБ, ОТК</div>
+        </div>
+        <div class="card card-prod">
+            <span class="card-emoji">🏗️</span>
+            <div class="card-title">Начальник производства</div>
+            <div class="card-desc">План, сроки, участки, люди</div>
+        </div>
+        <div class="card card-pdo">
+            <span class="card-emoji">📦</span>
+            <div class="card-title">Руководитель ПДО</div>
+            <div class="card-desc">Планирование, снабжение, логистика</div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">ООО «Эверест-Тех» · Организационная структура · 2026</div>
+</body>
+</html>

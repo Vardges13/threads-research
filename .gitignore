@@ -1,0 +1,7 @@
+
+# Secrets - never commit
+integrations/google/config.json
+integrations/notion/config.json
+warehouse-app/.env
+*.secret
+*.key

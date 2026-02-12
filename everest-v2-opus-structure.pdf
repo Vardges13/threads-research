@@ -1,0 +1,326 @@
+%PDF-1.7
+1 0 obj
+<<
+/Type /Catalog
+/Pages 2 0 R
+/PageLayout /SinglePage
+/PageMode /UseNone
+>>
+endobj
+
+2 0 obj
+<<
+/Type /Pages
+/Kids [3 0 R]
+/Count 1
+>>
+endobj
+
+3 0 obj
+<<
+/Type /Page
+/Parent 2 0 R
+/MediaBox [0 0 595 842]
+/Resources <<
+/Font <<
+/F1 4 0 R
+/F2 5 0 R
+/F3 6 0 R
+>>
+>>
+/Contents 7 0 R
+>>
+endobj
+
+4 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Bold
+>>
+endobj
+
+5 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica
+>>
+endobj
+
+6 0 obj
+<<
+/Type /Font
+/Subtype /Type1
+/BaseFont /Helvetica-Oblique
+>>
+endobj
+
+7 0 obj
+<<
+/Length 8 0 R
+>>
+stream
+q
+% Title and header
+BT
+/F1 18 Tf
+50 800 Td
+(EVEREST-TECH LLC - ORGANIZATIONAL STRUCTURE v2) Tj
+0 -20 Td
+/F2 12 Tf
+(Production and Engineering Support Division) Tj
+0 -15 Td
+/F3 10 Tf
+(Created with Claude Opus 4.5 - Professional Quality) Tj
+ET
+
+% Line separator
+50 760 495 1 re
+f
+
+% General Director
+BT
+/F1 14 Tf
+200 730 Td
+(GENERAL DIRECTOR) Tj
+ET
+
+% Draw boxes around sections
+50 650 495 2 re
+f
+50 650 2 60 re
+f
+547 650 2 60 re
+f
+50 710 495 2 re
+f
+
+% Technical Director Block
+BT
+/F1 12 Tf
+60 690 Td
+(TECHNICAL DIRECTOR BLOCK) Tj
+0 -15 Td
+/F2 10 Tf
+(Design Bureau \(KB\)) Tj
+0 -10 Td
+(  - Head of KB) Tj
+0 -8 Td
+(  - Design Engineer, CAD Operator) Tj
+0 -8 Td
+(  - Product development, working drawings, 3D models) Tj
+0 -12 Td
+(Quality Control Department \(QCD\)) Tj
+0 -10 Td
+(  - Head of QCD) Tj
+0 -8 Td
+(  - Input Controller, Operational Controller) Tj
+0 -8 Td
+(  - INDEPENDENT FROM PRODUCTION!) Tj
+0 -8 Td
+(  - Input control of raw materials, operational by sections) Tj
+0 -12 Td
+(Technology Department) Tj
+0 -10 Td
+(  - Chief Technologist) Tj
+0 -8 Td
+(  - Process Engineer) Tj
+0 -8 Td
+(  - Route maps, standards, tooling, cutting/bending modes) Tj
+0 -12 Td
+(Chief Mechanic Service) Tj
+0 -10 Td
+(  - Chief Mechanic) Tj
+0 -8 Td
+(  - Equipment Adjuster, Electrician) Tj
+0 -8 Td
+(  - Maintenance and repair of all 5 sections) Tj
+ET
+
+% Production Manager Block
+BT
+/F1 12 Tf
+60 450 Td
+(PRODUCTION MANAGER BLOCK) Tj
+0 -15 Td
+/F2 10 Tf
+(Deputy Production Manager) Tj
+0 -8 Td
+(  - Operational control, daily meetings with masters) Tj
+0 -15 Td
+(1. PREPARATION SECTION) Tj
+0 -10 Td
+(  - Laser, CNC Punching, Guillotine) Tj
+0 -8 Td
+(  - Section Master) Tj
+0 -8 Td
+(  - Laser Operator, CNC Operator, Guillotine Operator, Rigger) Tj
+0 -12 Td
+(2. BENDING SECTION) Tj
+0 -10 Td
+(  - CNC Press Brakes, Panel Benders) Tj
+0 -8 Td
+(  - Section Master) Tj
+0 -8 Td
+(  - Press Brake Operator, Panel Bender Operator, Helper) Tj
+0 -12 Td
+(3. WELDING SECTION) Tj
+0 -10 Td
+(  - MIG/TIG, Assembly) Tj
+0 -8 Td
+(  - Section Master, Welder, Fitter-Assembler) Tj
+0 -12 Td
+(4. PAINTING SECTION) Tj
+0 -10 Td
+(  - Powder Coating) Tj
+0 -8 Td
+(  - Section Master, Surface Preparer, Booth Operator, Oven Operator) Tj
+0 -12 Td
+(5. PACKAGING/SHIPPING SECTION) Tj
+0 -10 Td
+(  - Packaging Line) Tj
+0 -8 Td
+(  - Section Master, Packer, Picker) Tj
+ET
+
+% PDO/Supply/Logistics Block
+BT
+/F1 12 Tf
+300 450 Td
+(PDO / SUPPLY / LOGISTICS BLOCK) Tj
+0 -15 Td
+/F2 10 Tf
+(Production Planning Department \(PDO\)) Tj
+0 -10 Td
+(  - Head of PDO) Tj
+0 -8 Td
+(  - Planner/Norm-setter, Production Dispatcher) Tj
+0 -8 Td
+(  - Shift assignments, plan control, coordination) Tj
+0 -12 Td
+(Supply Department) Tj
+0 -10 Td
+(  - Head of Supply Department) Tj
+0 -8 Td
+(  - Procurement Manager) Tj
+0 -8 Td
+(  - Raw material procurement \(KUMZ, Cladding Solutions\)) Tj
+0 -8 Td
+(  - Components, consumables, inventory control) Tj
+0 -12 Td
+(Logistics Department) Tj
+0 -10 Td
+(  - Logistician) Tj
+0 -8 Td
+(  - Driver/Forwarder) Tj
+0 -8 Td
+(  - Raw material delivery, finished goods shipping) Tj
+0 -8 Td
+(  - Transport logistics, documentation flow) Tj
+0 -12 Td
+(Warehouse) Tj
+0 -10 Td
+(  - Warehouse Manager) Tj
+0 -8 Td
+(  - Material Keeper \(raw materials\)) Tj
+0 -8 Td
+(  - Material Keeper \(finished products\)) Tj
+0 -8 Td
+(  - Loader/Rigger) Tj
+0 -8 Td
+(  - Reception, storage, inventory of materials) Tj
+0 -8 Td
+(  - Separate: raw materials warehouse + finished goods warehouse) Tj
+ET
+
+% Key Principles
+BT
+/F1 12 Tf
+60 150 Td
+(KEY CONSTRUCTION PRINCIPLES) Tj
+0 -15 Td
+/F2 9 Tf
+(> QCD -> Technical Director: independent from production.) Tj
+0 -8 Td
+(  Production Manager CANNOT pressure quality control) Tj
+0 -10 Td
+(> Technical Director - "brain": KB, technologists, QCD, mechanic.) Tj
+0 -8 Td
+(  Responsible for WHAT and HOW to produce) Tj
+0 -10 Td
+(> Production Manager - "hands": 5 sections, masters, plan.) Tj
+0 -8 Td
+(  Responsible for HOW MUCH and WHEN) Tj
+0 -10 Td
+(> PDO - "nervous system": connects supply, production and) Tj
+0 -8 Td
+(  shipping into a single flow) Tj
+0 -10 Td
+(> Master = single command: one section - one master, one responsible) Tj
+0 -10 Td
+(> Three verticals: Technical Director \(quality\) + Production Manager) Tj
+0 -8 Td
+(  \(volume\) + PDO \(coordination\) - balance without distortions) Tj
+ET
+
+% Three summary boxes
+BT
+/F1 10 Tf
+60 80 Td
+(TECHNICAL DIRECTOR) Tj
+0 -8 Td
+/F2 8 Tf
+(Quality, technologies, KB, QCD) Tj
+
+200 88 Td
+/F1 10 Tf
+(PRODUCTION MANAGER) Tj
+0 -8 Td
+/F2 8 Tf
+(Plan, deadlines, sections, people) Tj
+
+350 88 Td
+/F1 10 Tf
+(PDO MANAGER) Tj
+0 -8 Td
+/F2 8 Tf
+(Planning, supply, logistics) Tj
+ET
+
+% Footer
+BT
+/F3 8 Tf
+50 50 Td
+(OOO "Everest-Tech" - Organizational Structure - 2026) Tj
+50 40 Td
+(Enhanced with Claude Opus 4.5 for maximum quality and detail) Tj
+ET
+
+Q
+endstream
+endobj
+
+8 0 obj
+6242
+endobj
+
+xref
+0 9
+0000000000 65535 f 
+0000000010 00000 n 
+0000000106 00000 n 
+0000000165 00000 n 
+0000000346 00000 n 
+0000000439 00000 n 
+0000000528 00000 n 
+0000000622 00000 n 
+0000006916 00000 n 
+trailer
+<<
+/Size 9
+/Root 1 0 R
+>>
+startxref
+6935
+%%EOF

@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Организационная структура ООО «Эверест-Тех» v1</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+            font-size: 8px;
+            line-height: 1.25;
+            color: #2c3e50;
+            background: #fff;
+            padding: 12px;
+        }
+        
+        .header {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        
+        .header h1 { font-size: 16px; font-weight: 700; margin-bottom: 2px; }
+        .header .subtitle { font-size: 10px; color: #555; margin-bottom: 2px; }
+        .header .company { font-size: 11px; font-weight: 600; }
+        
+        .top-director {
+            text-align: center;
+            background: linear-gradient(135deg, #2c3e50, #1a252f);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 6px;
+            margin: 10px auto;
+            width: fit-content;
+            font-size: 12px;
+            font-weight: 700;
+        }
+        
+        .two-directors {
+            display: flex;
+            gap: 8px;
+            margin: 10px 0;
+        }
+        
+        .director-box {
+            flex: 1;
+            text-align: center;
+            padding: 6px 12px;
+            border-radius: 5px;
+            color: white;
+            font-size: 10px;
+            font-weight: 700;
+        }
+        
+        .tech-dir { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .gen-dir { background: linear-gradient(135deg, #3498db, #2980b9); }
+        
+        .three-blocks { display: flex; gap: 8px; margin-top: 10px; }
+        
+        .block {
+            flex: 1;
+            border-radius: 6px;
+            overflow: hidden;
+            background: #fff;
+            box-shadow: 0 1px 4px rgba(0,0,0,0.1);
+        }
+        
+        .block-header {
+            padding: 6px 8px;
+            font-size: 9px;
+            font-weight: 700;
+            color: white;
+        }
+        
+        .tech-header { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .exec-header { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .prod-header { background: linear-gradient(135deg, #e67e22, #d35400); }
+        
+        .block-content { padding: 6px; }
+        
+        .dept {
+            margin-bottom: 8px;
+            padding-bottom: 6px;
+            border-bottom: 1px solid #eee;
+        }
+        .dept:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+        
+        .dept-title { font-size: 8px; font-weight: 700; color: #2c3e50; margin-bottom: 2px; }
+        .dept-head { font-size: 7px; font-weight: 600; color: #c0392b; margin-bottom: 1px; }
+        .dept-staff { font-size: 6.5px; color: #34495e; margin-bottom: 2px; }
+        .dept-desc { font-size: 6px; color: #7f8c8d; font-style: italic; }
+        
+        .safety-box {
+            background: #fff3cd;
+            border: 1px solid #ffc107;
+            border-radius: 4px;
+            padding: 4px 6px;
+            margin-bottom: 8px;
+            font-size: 7px;
+            font-weight: 600;
+            color: #856404;
+        }
+        
+        .prod-section {
+            background: #f8f9fa;
+            border-left: 2px solid #e67e22;
+            padding: 4px 6px;
+            margin-bottom: 4px;
+            border-radius: 0 3px 3px 0;
+        }
+        
+        .section-num {
+            display: inline-block;
+            background: #e67e22;
+            color: white;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 12px;
+            font-size: 6px;
+            font-weight: 700;
+            margin-right: 4px;
+        }
+        
+        .section-title { font-size: 7px; font-weight: 700; color: #2c3e50; }
+        .section-equip { font-size: 6px; color: #7f8c8d; font-style: italic; margin-top: 1px; }
+        
+        .principles {
+            margin-top: 10px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            padding: 8px;
+            border-left: 3px solid #2c3e50;
+        }
+        
+        .principles h3 { font-size: 10px; font-weight: 700; color: #2c3e50; margin-bottom: 6px; }
+        
+        .principle {
+            font-size: 6.5px;
+            margin-bottom: 3px;
+            padding-left: 10px;
+            position: relative;
+        }
+        .principle:before { content: "✅"; position: absolute; left: 0; font-size: 6px; }
+        .principle strong { color: #2c3e50; }
+        
+        .summary-cards { display: flex; gap: 6px; margin-top: 10px; }
+        
+        .card {
+            flex: 1;
+            text-align: center;
+            border-radius: 5px;
+            padding: 6px;
+            color: white;
+        }
+        
+        .card-dark { background: linear-gradient(135deg, #2c3e50, #1a252f); }
+        .card-tech { background: linear-gradient(135deg, #9b59b6, #8e44ad); }
+        .card-exec { background: linear-gradient(135deg, #3498db, #2980b9); }
+        .card-prod { background: linear-gradient(135deg, #e67e22, #d35400); }
+        
+        .card-emoji { font-size: 14px; display: block; margin-bottom: 2px; }
+        .card-title { font-size: 8px; font-weight: 700; margin-bottom: 2px; }
+        .card-desc { font-size: 6px; opacity: 0.9; }
+        
+        .footer {
+            text-align: center;
+            margin-top: 10px;
+            font-size: 7px;
+            color: #95a5a6;
+            padding-top: 6px;
+            border-top: 1px solid #eee;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <div class="header">
+        <h1>🏭 Организационная структура</h1>
+        <div class="subtitle">Производство и инженерно-техническое обеспечение</div>
+        <div class="company">ООО «Эверест-Тех»</div>
+    </div>
+    
+    <!-- Top Director -->
+    <div class="top-director">👑 Управляющий директор</div>
+    
+    <!-- Two Directors -->
+    <div class="two-directors">
+        <div class="director-box tech-dir">🔬 Технический директор</div>
+        <div class="director-box gen-dir">👔 Генеральный директор</div>
+    </div>
+    
+    <!-- Three main blocks -->
+    <div class="three-blocks">
+        <!-- Technical Block -->
+        <div class="block">
+            <div class="block-header tech-header">🔬 Блок технического директора</div>
+            <div class="block-content">
+                <div class="dept">
+                    <div class="dept-title">⚙️ Главный инженер АХО и СтИК</div>
+                    <div class="dept-desc">Служба технологии и качества</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">✅ Технология ОТК</div>
+                    <div class="dept-desc">Контроль качества на всех этапах производства</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Executive Block -->
+        <div class="block">
+            <div class="block-header exec-header">💼 Блок исполнительного директора</div>
+            <div class="block-content">
+                <div class="safety-box">🦺 Охрана труда и техника безопасности</div>
+                
+                <div class="dept">
+                    <div class="dept-title">📊 Бухгалтерия</div>
+                    <div class="dept-head">Главбух</div>
+                    <div class="dept-staff">Кадры • Казначейство</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">📐 Конструкторское бюро</div>
+                    <div class="dept-staff">Конструктора • Неокр</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">💰 Коммерческий директор</div>
+                    <div class="dept-staff">Отдел продаж • Клиентский сервис • Сметный отдел • Снабжение</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">⚖️ Юридический отдел</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🚛 Группа логистики</div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Production Block -->
+        <div class="block">
+            <div class="block-header prod-header">🏗️ Блок директора по производству</div>
+            <div class="block-content">
+                <div class="dept">
+                    <div class="dept-title">🏪 Склад сырья и готовой продукции</div>
+                </div>
+                
+                <div class="dept">
+                    <div class="dept-title">🏭 Производственный блок</div>
+                    <div class="dept-head">Начальник производства</div>
+                    <div class="dept-staff">Зам. начальника производства</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">1</span>Заготовительный</div>
+                    <div class="section-equip">Лазер • Гильотина • Координатная пробивка</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">2</span>Гибочный</div>
+                    <div class="section-equip">Панелегибы • Гибочники • Вальцовка</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">3</span>Сборочный</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">4</span>Сварочный</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">5</span>Покрасочный</div>
+                </div>
+                
+                <div class="prod-section">
+                    <div class="section-title"><span class="section-num">6</span>Упаковка-комплектовка</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Principles -->
+    <div class="principles">
+        <h3>🔑 Ключевые особенности структуры</h3>
+        <div class="principle"><strong>Четырёхуровневая иерархия:</strong> Управляющий → Технический/Генеральный → Исполнительный → Директор по производству</div>
+        <div class="principle"><strong>Разделение на технический и операционный блоки:</strong> чёткое распределение ответственности</div>
+        <div class="principle"><strong>КБ под исполнительным директором:</strong> близость к коммерции и клиентам</div>
+        <div class="principle"><strong>Производственная цепочка:</strong> Заготовка → Гибка → Сборка → Сварка → Покраска → Упаковка</div>
+        <div class="principle"><strong>Охрана труда:</strong> напрямую под генеральным директором — приоритет безопасности</div>
+    </div>
+    
+    <!-- Summary cards -->
+    <div class="summary-cards">
+        <div class="card card-dark">
+            <span class="card-emoji">👑</span>
+            <div class="card-title">Управляющий директор</div>
+            <div class="card-desc">Стратегия, координация</div>
+        </div>
+        <div class="card card-tech">
+            <span class="card-emoji">🔬</span>
+            <div class="card-title">Технический директор</div>
+            <div class="card-desc">Качество, технологии</div>
+        </div>
+        <div class="card card-exec">
+            <span class="card-emoji">💼</span>
+            <div class="card-title">Исполнительный директор</div>
+            <div class="card-desc">Операции, финансы, кадры</div>
+        </div>
+        <div class="card card-prod">
+            <span class="card-emoji">🏗️</span>
+            <div class="card-title">Директор по производству</div>
+            <div class="card-desc">План, участки, выпуск</div>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <div class="footer">ООО «Эверест-Тех» · Организационная структура · 2026</div>
+</body>
+</html>
