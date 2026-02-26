@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vibe Kanban - Оркестрация ИИ-агентов</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 100%);
+            color: #334155;
+            min-height: 100vh;
+            font-size: 14px;
+        }
+
+        .header {
+            background: white;
+            padding: 1rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .header h1 {
+            color: #0f172a;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .stat {
+            background: #f8fafc;
+            padding: 0.75rem 1rem;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .stat-label {
+            font-size: 0.75rem;
+            color: #64748b;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #0f172a;
+            margin-top: 0.25rem;
+        }
+
+        .add-task-section {
+            background: white;
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid #e2e8f0;
+        }
+
+        .add-task-form {
+            display: flex;
+            gap: 1rem;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .form-group label {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: #64748b;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            transition: all 0.2s;
+            background: white;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 60px;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-primary {
+            background: #3b82f6;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #2563eb;
+            transform: translateY(-1px);
+        }
+
+        .btn-secondary {
+            background: #f1f5f9;
+            color: #475569;
+            border: 1px solid #d1d5db;
+        }
+
+        .btn-secondary:hover {
+            background: #e2e8f0;
+        }
+
+        .btn-success {
+            background: #10b981;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-success:hover {
+            background: #059669;
+        }
+
+        .btn-dispatch {
+            background: #8b5cf6;
+            color: white;
+            font-size: 0.75rem;
+            padding: 0.5rem 1rem;
+        }
+
+        .btn-dispatch:hover {
+            background: #7c3aed;
+        }
+
+        .kanban-board {
+            display: flex;
+            gap: 1.5rem;
+            padding: 2rem;
+            overflow-x: auto;
+            min-height: calc(100vh - 300px);
+        }
+
+        .column {
+            flex: 1;
+            min-width: 300px;
+            background: white;
+            border-radius: 12px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            border: 1px solid #e2e8f0;
+        }
+
+        .column-header {
+            padding: 1.5rem;
+            border-bottom: 1px solid #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .column-title {
+            font-weight: 700;
+            font-size: 1rem;
+            color: #0f172a;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .task-count {
+            background: #f1f5f9;
+            color: #64748b;
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .column-content {
+            padding: 1rem;
+            min-height: 400px;
+        }
+
+        .task-card {
+            background: #fefefe;
+            border: 1px solid #e2e8f0;
+            border-radius: 8px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            cursor: move;
+            transition: all 0.2s;
+            box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .task-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            border-color: #cbd5e1;
+        }
+
+        .task-card.dragging {
+            opacity: 0.5;
+            transform: rotate(5deg);
+        }
+
+        .task-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.75rem;
+        }
+
+        .task-title {
+            font-weight: 600;
+            color: #0f172a;
+            line-height: 1.4;
+        }
+
+        .priority-badge {
+            padding: 0.25rem 0.5rem;
+            border-radius: 12px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .priority-high {
+            background: #fee2e2;
+            color: #dc2626;
+        }
+
+        .priority-medium {
+            background: #fef3c7;
+            color: #d97706;
+        }
+
+        .priority-low {
+            background: #dcfce7;
+            color: #16a34a;
+        }
+
+        .task-description {
+            color: #64748b;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            margin-bottom: 0.75rem;
+        }
+
+        .task-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.75rem;
+            color: #64748b;
+            margin-bottom: 1rem;
+        }
+
+        .agent-badge {
+            background: #f1f5f9;
+            color: #475569;
+            padding: 0.25rem 0.5rem;
+            border-radius: 6px;
+            font-weight: 500;
+        }
+
+        .task-timer {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .task-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .drop-zone {
+            border: 2px dashed #cbd5e1;
+            border-radius: 8px;
+            padding: 2rem;
+            text-align: center;
+            color: #64748b;
+            background: #f8fafc;
+        }
+
+        .drop-zone.drag-over {
+            border-color: #3b82f6;
+            background: #eff6ff;
+            color: #3b82f6;
+        }
+
+        @media (max-width: 768px) {
+            .kanban-board {
+                flex-direction: column;
+                padding: 1rem;
+            }
+            
+            .column {
+                min-width: unset;
+            }
+            
+            .add-task-form {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .stats {
+                justify-content: space-between;
+            }
+        }
+
+        .empty-column {
+            text-align: center;
+            color: #94a3b8;
+            font-style: italic;
+            padding: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🎯 Vibe Kanban - Оркестрация ИИ-агентов</h1>
+        <div class="stats">
+            <div class="stat">
+                <div class="stat-label">Всего задач</div>
+                <div class="stat-value" id="totalTasks">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">В работе</div>
+                <div class="stat-value" id="activeTasks">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Завершено</div>
+                <div class="stat-value" id="completedTasks">0</div>
+            </div>
+            <div class="stat">
+                <div class="stat-label">Среднее время</div>
+                <div class="stat-value" id="avgTime">-</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="add-task-section">
+        <div class="add-task-form">
+            <div class="form-group">
+                <label>Название задачи</label>
+                <input type="text" id="taskTitle" placeholder="Создать API endpoint для users" style="min-width: 250px;">
+            </div>
+            <div class="form-group">
+                <label>Описание</label>
+                <textarea id="taskDescription" placeholder="Подробное описание задачи..."></textarea>
+            </div>
+            <div class="form-group">
+                <label>Приоритет</label>
+                <select id="taskPriority">
+                    <option value="low">🟢 Низкий</option>
+                    <option value="medium" selected>🟡 Средний</option>
+                    <option value="high">🔴 Высокий</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>Агент</label>
+                <select id="taskAgent">
+                    <option value="Claude Code">🤖 Claude Code</option>
+                    <option value="Cursor">⚡ Cursor</option>
+                    <option value="Copilot">🤖 GitHub Copilot</option>
+                    <option value="Custom">🔧 Custom</option>
+                </select>
+            </div>
+            <button class="btn btn-primary" onclick="addTask()">
+                ➕ Добавить задачу
+            </button>
+        </div>
+    </div>
+
+    <div class="kanban-board">
+        <div class="column" data-status="plan">
+            <div class="column-header">
+                <div class="column-title">📝 План</div>
+                <div class="task-count" id="planCount">0</div>
+            </div>
+            <div class="column-content" id="planColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="empty-column">Перетащите сюда задачи для планирования</div>
+            </div>
+        </div>
+
+        <div class="column" data-status="coding">
+            <div class="column-header">
+                <div class="column-title">🤖 Кодинг</div>
+                <div class="task-count" id="codingCount">0</div>
+            </div>
+            <div class="column-content" id="codingColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="empty-column">Задачи в разработке</div>
+            </div>
+        </div>
+
+        <div class="column" data-status="review">
+            <div class="column-header">
+                <div class="column-title">👁️ Ревью</div>
+                <div class="task-count" id="reviewCount">0</div>
+            </div>
+            <div class="column-content" id="reviewColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="empty-column">Задачи на проверке</div>
+            </div>
+        </div>
+
+        <div class="column" data-status="done">
+            <div class="column-header">
+                <div class="column-title">✅ Готово</div>
+                <div class="task-count" id="doneCount">0</div>
+            </div>
+            <div class="column-content" id="doneColumn" ondrop="drop(event)" ondragover="allowDrop(event)">
+                <div class="empty-column">Завершённые задачи</div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let tasks = JSON.parse(localStorage.getItem('vibeKanbanTasks')) || [];
+        let taskIdCounter = parseInt(localStorage.getItem('vibeKanbanCounter')) || 1;
+
+        function saveToStorage() {
+            localStorage.setItem('vibeKanbanTasks', JSON.stringify(tasks));
+            localStorage.setItem('vibeKanbanCounter', taskIdCounter.toString());
+        }
+
+        function generateId() {
+            return `task-${taskIdCounter++}`;
+        }
+
+        function addTask() {
+            const title = document.getElementById('taskTitle').value.trim();
+            const description = document.getElementById('taskDescription').value.trim();
+            const priority = document.getElementById('taskPriority').value;
+            const agent = document.getElementById('taskAgent').value;
+
+            if (!title) {
+                alert('Введите название задачи');
+                return;
+            }
+
+            const task = {
+                id: generateId(),
+                title,
+                description,
+                priority,
+                agent,
+                status: 'plan',
+                createdAt: new Date().toISOString(),
+                startedAt: null,
+                completedAt: null
+            };
+
+            tasks.push(task);
+            saveToStorage();
+            renderTasks();
+            updateStats();
+
+            // Очистить форму
+            document.getElementById('taskTitle').value = '';
+            document.getElementById('taskDescription').value = '';
+            document.getElementById('taskPriority').value = 'medium';
+            document.getElementById('taskAgent').value = 'Claude Code';
+        }
+
+        function renderTask(task) {
+            const timeInWork = task.startedAt ? 
+                Math.floor((new Date() - new Date(task.startedAt)) / 60000) : 0;
+
+            const priorityClass = `priority-${task.priority}`;
+            const priorityEmoji = {
+                high: '🔴',
+                medium: '🟡',
+                low: '🟢'
+            };
+
+            let actions = '';
+            
+            if (task.status === 'plan') {
+                actions = `<button class="btn btn-dispatch" onclick="dispatchTask('${task.id}')">🚀 Dispatch</button>`;
+            } else if (task.status === 'review') {
+                actions = `<button class="btn btn-success" onclick="approveTask('${task.id}')">✅ Approve</button>`;
+            }
+
+            return `
+                <div class="task-card" draggable="true" data-task-id="${task.id}" 
+                     ondragstart="dragStart(event)" ondragend="dragEnd(event)">
+                    <div class="task-header">
+                        <div class="task-title">${task.title}</div>
+                        <div class="priority-badge ${priorityClass}">
+                            ${priorityEmoji[task.priority]} ${task.priority.toUpperCase()}
+                        </div>
+                    </div>
+                    ${task.description ? `<div class="task-description">${task.description}</div>` : ''}
+                    <div class="task-meta">
+                        <div class="agent-badge">${task.agent}</div>
+                        <div class="task-timer">${timeInWork > 0 ? `${timeInWork}м` : 'Не начата'}</div>
+                    </div>
+                    ${actions ? `<div class="task-actions">${actions}</div>` : ''}
+                </div>
+            `;
+        }
+
+        function renderTasks() {
+            const columns = {
+                plan: document.getElementById('planColumn'),
+                coding: document.getElementById('codingColumn'),
+                review: document.getElementById('reviewColumn'),
+                done: document.getElementById('doneColumn')
+            };
+
+            // Очистить колонки
+            Object.values(columns).forEach(column => {
+                column.innerHTML = '';
+            });
+
+            // Группировать задачи по статусу
+            const tasksByStatus = {
+                plan: [],
+                coding: [],
+                review: [],
+                done: []
+            };
+
+            tasks.forEach(task => {
+                tasksByStatus[task.status].push(task);
+            });
+
+            // Отрендерить задачи
+            Object.keys(tasksByStatus).forEach(status => {
+                const column = columns[status];
+                const statusTasks = tasksByStatus[status];
+
+                if (statusTasks.length === 0) {
+                    const emptyMessages = {
+                        plan: 'Перетащите сюда задачи для планирования',
+                        coding: 'Задачи в разработке',
+                        review: 'Задачи на проверке',
+                        done: 'Завершённые задачи'
+                    };
+                    column.innerHTML = `<div class="empty-column">${emptyMessages[status]}</div>`;
+                } else {
+                    column.innerHTML = statusTasks.map(task => renderTask(task)).join('');
+                }
+            });
+
+            // Обновить счётчики
+            Object.keys(tasksByStatus).forEach(status => {
+                const count = tasksByStatus[status].length;
+                const countElement = document.getElementById(`${status}Count`);
+                if (countElement) {
+                    countElement.textContent = count;
+                }
+            });
+        }
+
+        function updateStats() {
+            const totalTasks = tasks.length;
+            const activeTasks = tasks.filter(task => task.status === 'coding' || task.status === 'review').length;
+            const completedTasks = tasks.filter(task => task.status === 'done').length;
+            
+            // Среднее время выполнения
+            const doneTasks = tasks.filter(task => task.status === 'done' && task.startedAt && task.completedAt);
+            const avgTimeMs = doneTasks.length > 0 ? 
+                doneTasks.reduce((sum, task) => {
+                    return sum + (new Date(task.completedAt) - new Date(task.startedAt));
+                }, 0) / doneTasks.length : 0;
+            
+            const avgTimeText = avgTimeMs > 0 ? `${Math.round(avgTimeMs / 60000)}м` : '-';
+
+            document.getElementById('totalTasks').textContent = totalTasks;
+            document.getElementById('activeTasks').textContent = activeTasks;
+            document.getElementById('completedTasks').textContent = completedTasks;
+            document.getElementById('avgTime').textContent = avgTimeText;
+        }
+
+        function dispatchTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.status = 'coding';
+                task.startedAt = new Date().toISOString();
+                saveToStorage();
+                renderTasks();
+                updateStats();
+                
+                // В реальном приложении здесь был бы вызов dispatch.sh
+                console.log(`Dispatching task to ${task.agent}:`, task);
+            }
+        }
+
+        function approveTask(taskId) {
+            const task = tasks.find(t => t.id === taskId);
+            if (task) {
+                task.status = 'done';
+                task.completedAt = new Date().toISOString();
+                saveToStorage();
+                renderTasks();
+                updateStats();
+            }
+        }
+
+        // Drag & Drop
+        let draggedElement = null;
+
+        function dragStart(e) {
+            draggedElement = e.target;
+            e.target.classList.add('dragging');
+        }
+
+        function dragEnd(e) {
+            e.target.classList.remove('dragging');
+            draggedElement = null;
+        }
+
+        function allowDrop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.add('drag-over');
+        }
+
+        function drop(e) {
+            e.preventDefault();
+            e.currentTarget.classList.remove('drag-over');
+            
+            if (draggedElement) {
+                const taskId = draggedElement.dataset.taskId;
+                const newStatus = e.currentTarget.parentElement.dataset.status;
+                
+                const task = tasks.find(t => t.id === taskId);
+                if (task) {
+                    task.status = newStatus;
+                    
+                    // Обновить временные метки
+                    if (newStatus === 'coding' && !task.startedAt) {
+                        task.startedAt = new Date().toISOString();
+                    } else if (newStatus === 'done' && !task.completedAt) {
+                        task.completedAt = new Date().toISOString();
+                    }
+                    
+                    saveToStorage();
+                    renderTasks();
+                    updateStats();
+                }
+            }
+        }
+
+        // Обработка dragover для колонок
+        document.querySelectorAll('.column-content').forEach(column => {
+            column.addEventListener('dragover', function(e) {
+                e.preventDefault();
+                this.classList.add('drag-over');
+            });
+            
+            column.addEventListener('dragleave', function(e) {
+                if (!this.contains(e.relatedTarget)) {
+                    this.classList.remove('drag-over');
+                }
+            });
+        });
+
+        // Обновление времени каждую минуту
+        setInterval(() => {
+            renderTasks();
+        }, 60000);
+
+        // Горячие клавиши
+        document.addEventListener('keydown', function(e) {
+            if (e.ctrlKey || e.metaKey) {
+                if (e.key === 'Enter') {
+                    e.preventDefault();
+                    document.getElementById('taskTitle').focus();
+                }
+            }
+        });
+
+        // Инициализация
+        renderTasks();
+        updateStats();
+        
+        // Фокус на поле ввода при загрузке
+        document.getElementById('taskTitle').focus();
+    </script>
+</body>
+</html>

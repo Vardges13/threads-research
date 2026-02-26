@@ -1,0 +1,11 @@
+{
+  "name": "Точка Банк",
+  "customer_code": "302562957",
+  "client_id": "780a5e553a3e3fb32948d38e27f01f01",
+  "api_base": "https://enter.tochka.com/uapi",
+  "token_type": "JWT",
+  "created_at": "2026-02-22",
+  "access_level": "create_payments",
+  "permissions": ["ReadCustomerData", "CreatePayments", "ReadBalance", "ReadStatements", "CreateInvoices", "SBP"],
+  "note": "Token stored in macOS Keychain (tochka-api-token). Payments require signing in web interface."
+}

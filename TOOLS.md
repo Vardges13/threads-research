@@ -9,7 +9,7 @@
 
 ## 🤖 Локальные модели (Ollama)
 - **Ollama** v0.15.2 (brew services, автозапуск)
-- Модель: `llama3.2:3b` (2 ГБ, ~1.3с на ответ)
+- Модель: `llama3.1:8b` (4.7 ГБ, ~2с на ответ)
 - API: `http://localhost:11434`
 - RAM: 16 ГБ (Mac mini)
 - Для: простые задачи, черновики, перефразирование — бесплатно
@@ -23,12 +23,12 @@
 - Для Mail.ru: `himalaya envelope list --account mailru`
 
 ## 🔊 TTS (голосовые ответы)
-- **Edge TTS** (бесплатный, без API-ключа) — основной
-- Голос: `ru-RU-DmitryNeural` (мужской, дружелюбный)
-- Альтернатива: `ru-RU-SvetlanaNeural` (женский)
-- Скрипт: `tools/tts-edge.sh "текст" [output.ogg] [voice]`
-- Пайплайн: edge-tts → ffmpeg (libopus) → .ogg → Telegram voice
-- Встроенный `tts` tool OpenClaw — не работает (пустые файлы)
+- **Edge TTS** — единственный провайдер (ElevenLabs/OpenAI удалены)
+- Голос: `ru-RU-DmitryNeural` (мужской, бодрый, позитивный)
+- Настройки: pitch +10%, rate +20%
+- **Отправка:** ТОЛЬКО через `tts()` tool (теги `[[tts]]` НЕ работают)
+- Скрипт-бэкап: `tools/tts-edge.sh "текст" [output.ogg] [voice]`
+- Конфиг: `messages.tts` в openclaw.json
 
 ## 💬 Каналы
 - **Telegram (личка)**: @vardges (id:58584187) — основной

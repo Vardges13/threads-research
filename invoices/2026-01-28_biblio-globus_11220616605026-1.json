@@ -1,0 +1,44 @@
+{
+  "invoice": {
+    "number": "11220616605026/1",
+    "date": "2026-01-28",
+    "status": "payment_created",
+    "payment_request_id": "openapi-7fe1184e-44d0-4221-947c-1ddffebca11c",
+    "payment_amount_rub": 121500.00,
+    "payment_date": "2026-02-19"
+  },
+  "supplier": {
+    "name": "ООО \"Библио-Глобус Туроператор\"",
+    "inn": "7731447676",
+    "kpp": "785150001",
+    "address": "123376, г. Москва, ул. Красная Пресня, д. 28, пом. 517",
+    "phone": "+7(495)109-2500"
+  },
+  "bank": {
+    "name": "Газпромбанк (АО)",
+    "bik": "044524823",
+    "account": "40702810895000000106",
+    "corr_account": "30101810200000000823"
+  },
+  "buyer": {
+    "name": "ООО ОНЛАЙН ТУР+"
+  },
+  "items": [
+    {
+      "description": "112206166050, тур.услуга, Таиланд, 12.02.2026, KVOKSHA S.",
+      "quantity": 1,
+      "unit": "шт",
+      "price_usd": 1500.00,
+      "total_usd": 1500.00
+    }
+  ],
+  "total": {
+    "amount": 1500.00,
+    "currency": "USD",
+    "payment_note": "Оплата в рублях РФ по внутреннему курсу компании на день оплаты (www.bgoperator.ru)"
+  },
+  "meta": {
+    "saved_at": "2026-02-19T12:30:00+03:00",
+    "source_file": "file_232---ad21040d-a659-4a5c-b096-45b84e9b5464.pdf"
+  }
+}
